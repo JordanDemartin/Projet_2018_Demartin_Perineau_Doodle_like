@@ -1,0 +1,36 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+
+
+.connexion{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 40%;
+
+}
+
+.connexion form{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.connexion input{
+    display: block;
+    margin: 5px auto;
+
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.connexion a{
+    display: block;
+}
+
+.connexion p{
+    margin: 0;
+}
