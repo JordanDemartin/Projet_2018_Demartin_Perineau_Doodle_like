@@ -3,7 +3,6 @@ html,body{
     padding:0;
 }
 
-
 .connexion{
     position: absolute;
     left: 50%;
@@ -15,7 +14,7 @@ html,body{
 
 .connexion form{
     display: inline-block;
-    text-align: center;
+    /* text-align: center; */
     width: 100%;
 }
 
@@ -33,4 +32,26 @@ html,body{
 
 .connexion p{
     margin: 0;
+}
+
+.connexion .prenom, .connexion .nom{
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+
+.entete{
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid;
+
+}
+.entete .doudle{
+    display: inline-block;
+    color: #3798D4;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 7px 0px;
+    padding: 5px;
 }
