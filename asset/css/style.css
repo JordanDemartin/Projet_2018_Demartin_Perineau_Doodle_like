@@ -14,13 +14,8 @@ html,body{
     width: 100%;
 
 }
-.entete .doudle{
-    display: inline-block;
-    color: #3798D4;
-    font-size: 30px;
-    font-weight: bold;
-    margin: 7px 0px;
-    padding: 5px;
+.entete img{
+    height: 60px;
 }
 
 
