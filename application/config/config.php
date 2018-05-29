@@ -35,7 +35,7 @@ $config['base_url'] = '/~perineau/doudle_like/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
