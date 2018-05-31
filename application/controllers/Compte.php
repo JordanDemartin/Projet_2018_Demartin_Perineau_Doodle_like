@@ -3,16 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Compte extends CI_Controller {
 
-	/**
-	 * $this->load->helper("PageLoader");
-	 *
-	 * $this->PageLoader->loadPage("connection","connection");
-	 * 	$page = $this->load->view("PageLoader","", true);
-     *
-     *$page = $this->load->view("connexion","", true);
-     *$this->load->view("template/default",["titre"=>'connexion', "page" => $page]);
-	 */
-
 	public function index()
 	{
 		redirect('/compte/connexion', 'auto');
@@ -31,9 +21,9 @@ class Compte extends CI_Controller {
 		if ($this->form_validation->run() == true) {
 
 			$post=$this->input->post(null);
-			$mot_passe=$this->Compte_model->loginexiste($post['login']);
+			$mot_passe=$this->Compte_model->loginExiste($post['login']);
 			if ($mot_passe) {
-				
+
 				if (password_verify($post['passw'],$mot_passe)) {
 
 					redirect('/compte/status', 'auto');
@@ -62,10 +52,10 @@ class Compte extends CI_Controller {
 		if ($this->form_validation->run() == true) {
 			$post=$this->input->post(null);
 
-			if (!$this->Compte_model->loginexiste($post['login'])) {
+			if (!$this->Compte_model->loginExiste($post['login'])) {
 				$post['passw']=password_hash($post['passw'],PASSWORD_DEFAULT);
 				array_splice($post,-1);
-				$this->Compte_model->inscription($post);
+				$this->Compte_model->creerCompte($post);
 				redirect('/compte/status', 'auto');
 			}else{
 				$compte="le compte existe déjà";
