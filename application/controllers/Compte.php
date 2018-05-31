@@ -20,7 +20,29 @@ class Compte extends CI_Controller {
 
 	public function connexion()
 	{
-		loadpage("Connexion","connexion");
+		$this->load->library('form_validation');
+		$this->load->helper('form');
+		$this->load->model('Compte_model');
+		$erreur='';
+
+		$this->form_validation->set_rules('login', 'login', 'required');
+		$this->form_validation->set_rules('passw', 'password', 'required');
+
+		if ($this->form_validation->run() == true) {
+
+			$post=$this->input->post(null);
+			$mot_passe=$this->Compte_model->loginexiste($post['login']);
+			if ($mot_passe) {
+				
+				if (password_verify($post['passw'],$mot_passe)) {
+
+					redirect('/compte/status', 'auto');
+				}
+
+			}
+			$erreur="mauvais mot de passe";
+		}
+		loadpage("Connexion","connexion",["valide"=>$erreur]);
 	}
 
 	public function inscription(){
@@ -44,7 +66,7 @@ class Compte extends CI_Controller {
 				$post['passw']=password_hash($post['passw'],PASSWORD_DEFAULT);
 				array_splice($post,-1);
 				$this->Compte_model->inscription($post);
-				redirect('/compte/connexion', 'auto');
+				redirect('/compte/status', 'auto');
 			}else{
 				$compte="le compte existe déjà";
 			}
@@ -53,6 +75,11 @@ class Compte extends CI_Controller {
 
 		loadpage("Inscription","inscription",["compte"=>$compte]);
 
+	}
+
+	public function status()
+	{
+		loadpage("Succes","status");
 	}
 
 	public function motpasseoublier(){

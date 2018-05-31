@@ -1,5 +1,5 @@
 <div class="connexion">
-    <form action="#" method="post">
+    <form action="" method="post">
 
         <label for="prenom" class="prenom">Prénom
         <input type="text" name="prenom" id="prenom" value="<?php echo set_value('prenom');?>">
@@ -26,9 +26,9 @@
         <input type="password" name="password_c" id="password_c">
         </label>
 
-        <input type="submit" value="Connexion">
+        <input type="submit" value="Inscription">
     </form>
     <a href="<?= site_url('compte/motpasseoublier') ?>"><p>Mot de passe oublié</p></a>
-    <a href="<?= site_url('compte/connexion') ?>"><p>Page de connexion</p></a>
+    <a href="<?= site_url('compte/connexion') ?>"><p>Se connecter</p></a>
 
 </div>
