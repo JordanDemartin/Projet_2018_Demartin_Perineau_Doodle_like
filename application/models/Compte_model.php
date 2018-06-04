@@ -8,12 +8,12 @@ class Compte_model extends CI_Model {
         $this->load->database();
     }
 
-    public function inscription($data)
+    public function creerCompte($data)
     {
         $this->db->insert('doudle_compte', $data);
     }
 
-    public function loginexiste($login){
+    public function loginExiste($login){
         $requete=$this->db->select('passw')
                  ->from('doudle_compte')
                  ->where('login',$login)
