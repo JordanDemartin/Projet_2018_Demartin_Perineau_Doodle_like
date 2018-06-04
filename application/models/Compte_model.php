@@ -10,10 +10,11 @@ class Compte_model extends CI_Model {
 
     public function creerCompte($data)
     {
+        $data['passw']=password_hash($data['passw'],PASSWORD_DEFAULT);
         $this->db->insert('doudle_compte', $data);
     }
 
-    public function loginExiste($login){
+    public function verifUser($login,$passw=null){
         $requete=$this->db->select('passw')
                  ->from('doudle_compte')
                  ->where('login',$login)
@@ -22,10 +23,15 @@ class Compte_model extends CI_Model {
         $resultat=$requete->result();
 
         if (count($resultat) != 0) {
-            return $resultat[0]->passw;
-        }else {
-            return false;
+            if ($passw===null) {
+                return true;
+            }
+            if (password_verify($passw,$resultat[0]->passw)) {
+                return true;
+            }
+
         }
+        return false;
     }
 
 

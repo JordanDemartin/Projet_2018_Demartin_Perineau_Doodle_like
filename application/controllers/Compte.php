@@ -21,18 +21,13 @@ class Compte extends CI_Controller {
 		if ($this->form_validation->run() == true) {
 
 			$post=$this->input->post(null);
-			$mot_passe=$this->Compte_model->loginExiste($post['login']);
-			if ($mot_passe) {
-
-				if (password_verify($post['passw'],$mot_passe)) {
-
+			$this->Compte_model->verifUser($post['login']);
+			if ($this->Compte_model->verifUser($post['login'],$post['passw'])) {
 					redirect('/compte/status', 'auto');
-				}
-
 			}
 			$erreur="mauvais mot de passe";
 		}
-		loadpage("Connexion","connexion",["valide"=>$erreur]);
+		loadpage(["titre"=>"Connexion"],"connexion",["valide"=>$erreur]);
 	}
 
 	public function inscription(){
@@ -52,8 +47,7 @@ class Compte extends CI_Controller {
 		if ($this->form_validation->run() == true) {
 			$post=$this->input->post(null);
 
-			if (!$this->Compte_model->loginExiste($post['login'])) {
-				$post['passw']=password_hash($post['passw'],PASSWORD_DEFAULT);
+			if (!$this->Compte_model->verifUser($post['login'])) {
 				array_splice($post,-1);
 				$this->Compte_model->creerCompte($post);
 				redirect('/compte/status', 'auto');
@@ -63,17 +57,17 @@ class Compte extends CI_Controller {
 
 		}
 
-		loadpage("Inscription","inscription",["compte"=>$compte]);
+		loadpage(["titre"=>"Inscription"],"inscription",["compte"=>$compte]);
 
 	}
 
 	public function status()
 	{
-		loadpage("Succes","status");
+		loadpage(["titre"=>"Succes"],"status");
 	}
 
 	public function motpasseoublier(){
-		loadpage("Mot de passe oublier","motpasseoublier");
+		loadpage(["titre"=>"Mot de passe oublier"],"motpasseoublier");
 	}
 
 }
