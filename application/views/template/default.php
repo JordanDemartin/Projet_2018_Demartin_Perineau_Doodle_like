@@ -10,6 +10,9 @@
 
     <div class="entete">
         <img src="<?=base_url();?>/assets/image/logo.png" alt="doodle">
+        <div class="compte">
+            <a href=<?php echo $compte['lien']; ?>><?php echo $compte['contenue']; ?></a>
+        </div>
     </div>
 
     <div class="page">

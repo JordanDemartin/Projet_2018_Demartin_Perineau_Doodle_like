@@ -23,11 +23,11 @@ class Compte extends CI_Controller {
 			$post=$this->input->post(null);
 			$this->Compte_model->verifUser($post['login']);
 			if ($this->Compte_model->verifUser($post['login'],$post['passw'])) {
-					redirect('/compte/status', 'auto');
+					redirect('/doudle', 'auto');
 			}
 			$erreur="mauvais mot de passe";
 		}
-		loadpage(["titre"=>"Connexion"],"connexion",["valide"=>$erreur]);
+		loadpage(["titre"=>"Connexion"],"compte/connexion",["valide"=>$erreur]);
 	}
 
 	public function inscription(){
@@ -57,17 +57,17 @@ class Compte extends CI_Controller {
 
 		}
 
-		loadpage(["titre"=>"Inscription"],"inscription",["compte"=>$compte]);
+		loadpage(["titre"=>"Inscription"],"compte/inscription",["compte"=>$compte]);
 
 	}
 
 	public function status()
 	{
-		loadpage(["titre"=>"Succes"],"status");
+		loadpage(["titre"=>"Succes"],"compte/status");
 	}
 
 	public function motpasseoublier(){
-		loadpage(["titre"=>"Mot de passe oublier"],"motpasseoublier");
+		loadpage(["titre"=>"Mot de passe oublier"],"compte/motpasseoublier");
 	}
 
 }
