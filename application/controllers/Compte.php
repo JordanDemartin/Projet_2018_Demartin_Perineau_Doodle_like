@@ -28,7 +28,7 @@ class Compte extends CI_Controller {
 			}
 			$erreur="mauvais mot de passe";
 		}
-		loadpage(["titre"=>"Connexion"],"compte/connexion",["valide"=>$erreur]);
+		loadpage("Connexion","compte/connexion",["valide"=>$erreur]);
 	}
 
 	public function inscription(){
@@ -58,17 +58,17 @@ class Compte extends CI_Controller {
 
 		}
 
-		loadpage(["titre"=>"Inscription"],"compte/inscription",["compte"=>$compte]);
+		loadpage("Inscription","compte/inscription",["compte"=>$compte]);
 
 	}
 
 	public function status()
 	{
-		loadpage(["titre"=>"Succes"],"compte/status");
+		loadpage("Succes","compte/status");
 	}
 
 	public function motpasseoublier(){
-		loadpage(["titre"=>"Mot de passe oublier"],"compte/motpasseoublier");
+		loadpage("Mot de passe oublier","compte/motpasseoublier");
 	}
 
 	public function deconnexion()
