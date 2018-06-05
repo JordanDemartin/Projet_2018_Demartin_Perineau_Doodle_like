@@ -9,9 +9,12 @@
 <body>
 
     <div class="entete">
-        <img src="<?=base_url();?>/assets/image/logo.png" alt="doodle">
+        <a href=<?php echo site_url('/'); ?>><img src="<?=base_url();?>/assets/image/logo.png" alt="doodle"></a>
         <div class="compte">
             <a href=<?php echo $compte['lien']; ?>><?php echo $compte['contenue']; ?></a>
+            <?php if ($compte['connecter']): ?>
+                <a href=<?php echo site_url('/compte/deconnexion'); ?>>deconnexion</a>
+            <?php endif; ?>
         </div>
     </div>
 

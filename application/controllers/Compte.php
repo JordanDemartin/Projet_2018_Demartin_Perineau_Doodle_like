@@ -15,15 +15,16 @@ class Compte extends CI_Controller {
 		$this->load->model('Compte_model');
 		$erreur='';
 
-		$this->form_validation->set_rules('login', 'login', 'required');
-		$this->form_validation->set_rules('passw', 'password', 'required');
+		$this->form_validation->set_rules('login', 'login', 'required|trim');
+		$this->form_validation->set_rules('passw', 'password', 'required|trim');
 
 		if ($this->form_validation->run() == true) {
 
 			$post=$this->input->post(null);
 			$this->Compte_model->verifUser($post['login']);
 			if ($this->Compte_model->verifUser($post['login'],$post['passw'])) {
-					redirect('/doudle', 'auto');
+				$this->session->set_userdata(['nom'  => $post['login'],'connecter' => TRUE]);
+				redirect('/doudle', 'auto');
 			}
 			$erreur="mauvais mot de passe";
 		}
@@ -37,10 +38,10 @@ class Compte extends CI_Controller {
 		$this->load->model('Compte_model');
 		$compte="";
 
-		$this->form_validation->set_rules('prenom', 'prenom', 'required|alpha');
-		$this->form_validation->set_rules('nom', 'nom', 'required|alpha');
-		$this->form_validation->set_rules('login', 'login', 'required');
-		$this->form_validation->set_rules('email', 'email', 'required|valid_email');
+		$this->form_validation->set_rules('prenom', 'prenom', 'required|alpha|trim');
+		$this->form_validation->set_rules('nom', 'nom', 'required|alpha|trim');
+		$this->form_validation->set_rules('login', 'login', 'required|trim');
+		$this->form_validation->set_rules('email', 'email', 'required|valid_email|trim');
 		$this->form_validation->set_rules('passw', 'password', 'required');
 		$this->form_validation->set_rules('password_c', 'password_c', 'required|matches[passw]');
 
@@ -68,6 +69,12 @@ class Compte extends CI_Controller {
 
 	public function motpasseoublier(){
 		loadpage(["titre"=>"Mot de passe oublier"],"compte/motpasseoublier");
+	}
+
+	public function deconnexion()
+	{
+		$this->session->sess_destroy();
+		redirect('/compte/connexion', 'auto');
 	}
 
 }

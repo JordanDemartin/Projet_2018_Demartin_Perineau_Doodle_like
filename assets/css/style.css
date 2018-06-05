@@ -10,16 +10,17 @@ html,body{
 .entete{
     position: fixed;
     z-index: 1;
-    background: #bbb;
+    background: #ddd;
     height: 70px;
     width: 100%;
 }
-.entete img{
+.entete a img{
     position: relative;
     height: 60px;
     float: left;
 }
 .entete .compte{
+    z-index: -1;
     position: relative;
     text-align: right;
     top: 50%;

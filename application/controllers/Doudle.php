@@ -5,6 +5,7 @@ class Doudle extends CI_Controller {
 
     public function index()
     {
+        
         loadpage(["titre"=>"Connexion"],"doudle/index");
     }
 
