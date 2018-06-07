@@ -12,13 +12,13 @@ class Compte extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->load->helper('form');
-		$this->load->model('Compte_model');
 		$erreur='';
 
 		$this->form_validation->set_rules('login', 'login', 'required|trim');
 		$this->form_validation->set_rules('passw', 'password', 'required|trim');
 
 		if ($this->form_validation->run() == true) {
+			$this->load->model('Compte_model');
 
 			$post=$this->input->post(null);
 			$this->Compte_model->verifUser($post['login']);
@@ -35,7 +35,7 @@ class Compte extends CI_Controller {
 
 		$this->load->library('form_validation');
 		$this->load->helper('form');
-		$this->load->model('Compte_model');
+
 		$compte="";
 
 		$this->form_validation->set_rules('prenom', 'prenom', 'required|alpha|trim');
@@ -46,6 +46,7 @@ class Compte extends CI_Controller {
 		$this->form_validation->set_rules('password_c', 'password_c', 'required|matches[passw]');
 
 		if ($this->form_validation->run() == true) {
+			$this->load->model('Compte_model');
 			$post=$this->input->post(null);
 
 			if (!$this->Compte_model->verifUser($post['login'])) {

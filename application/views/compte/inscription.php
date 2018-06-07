@@ -1,30 +1,30 @@
 <div class="connexion">
     <form action="" method="post">
 
-        <label for="prenom" class="prenom">Prénom
+        <label for="prenom" class="prenom">Prénom</label>
         <input type="text" name="prenom" id="prenom" value="<?php echo set_value('prenom');?>">
-        </label>
 
-        <label for="nom" class="nom">Nom
+
+        <label for="nom" class="nom">Nom</label>
         <input type="text" name="nom" id="nom" value="<?php echo set_value('nom');?>">
-        </label>
 
-        <label for="login">Nom d'utilisateur
+
+        <label for="login">Nom d'utilisateur</label>
         <input type="text" name="login" id="login" value="<?php echo set_value('login');?>">
         <p><?php echo $compte; ?></p>
-        </label>
 
-        <label for="email">E-mail
+
+        <label for="email">E-mail</label>
         <input type="email" name="email" id="email" value="<?php echo set_value('email');?>">
-        </label>
 
-        <label for="password">Mot de passe
+
+        <label for="password">Mot de passe</label>
         <input type="password" name="passw" id="password">
-        </label>
 
-        <label for="password_c">Confirmer mot de passe
+
+        <label for="password_c">Confirmer mot de passe</label>
         <input type="password" name="password_c" id="password_c">
-        </label>
+
 
         <input type="submit" value="Inscription">
     </form>
