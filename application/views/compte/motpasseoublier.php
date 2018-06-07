@@ -8,7 +8,7 @@
 
         <input type="submit" value="envoyer">
     </form>
-    <a href="<?= site_url('compte/inscription') ?>"><p>créer un compte</p></a>
-    <a href="<?= site_url('compte/connexion') ?>"><p>Se connecter</p></a>
+    <p><a href="<?= site_url('compte/inscription') ?>">créer un compte</a></p>
+    <p><a href="<?= site_url('compte/connexion') ?>">Se connecter</a></p> 
 
 </div>

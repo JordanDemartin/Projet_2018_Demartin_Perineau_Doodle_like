@@ -28,7 +28,7 @@
 
         <input type="submit" value="Inscription">
     </form>
-    <a href="<?= site_url('compte/motpasseoublier') ?>"><p>Mot de passe oublié</p></a>
-    <a href="<?= site_url('compte/connexion') ?>"><p>Se connecter</p></a>
+    <p><a href="<?= site_url('compte/motpasseoublier') ?>">Mot de passe oublié</a></p>
+    <p><a href="<?= site_url('compte/connexion') ?>">Se connecter</a></p>
 
 </div>

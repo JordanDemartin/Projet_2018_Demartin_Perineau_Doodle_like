@@ -10,7 +10,7 @@
 
         <input type="submit" value="Connexion">
     </form>
-    <a href="<?= site_url('compte/motpasseoublier') ?>"><p>Mot de passe oublié</p></a>
-    <a href="<?= site_url('compte/inscription') ?>"><p>créer un compte</p></a>
+    <p><a href="<?= site_url('compte/motpasseoublier') ?>">Mot de passe oublié</a></p>
+    <p><a href="<?= site_url('compte/inscription') ?>">créer un compte</a></p>
 
 </div>

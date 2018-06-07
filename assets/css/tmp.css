@@ -1,0 +1,77 @@
+html,body{
+    margin:0;
+    padding:0;
+    height: 100%;
+    width: 100%;
+}
+
+/*----------------------------------------entete--------------------------------*/
+
+.entete{
+    position: fixed;
+    z-index: 1;
+    background: #ddd;
+    height: 70px;
+    width: 100%;
+}
+.entete img{
+    position: relative;
+    height: 60px;
+    float: left;
+}
+.entete .compte{
+    z-index: -1;
+    position: relative;
+    text-align: right;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+/*----------------------------------------page------------------------------------*/
+
+.page{
+    margin-top: 70px;
+    display: inline-block;
+}
+
+
+/*----------------------------------------connection--------------------------------*/
+
+.connexion{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 40%;
+
+}
+
+.connexion form{
+    display: inline-block;
+    /* text-align: center; */
+    width: 100%;
+}
+
+.connexion input{
+    display: block;
+    margin: 5px auto;
+
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.connexion a{
+    display: block;
+}
+
+.connexion p{
+    margin: 0;
+}
+
+.connexion .prenom, .connexion .nom{
+    display: block;
+    width: 50%;
+    float: left;
+}
