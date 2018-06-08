@@ -8,7 +8,7 @@
         <input type="text" name="lieu" id="lieu" value="<?php echo set_value('lieu');?>">
 
         <label for="description">description</label>
-        <textarea name="description" id="description" rows="9" cols="80"><?php echo set_value('description');?></textarea>
+        <textarea name="description" id="description"><?php echo set_value('description');?></textarea>
 
         <input type="submit" value="continuer">
     </form>

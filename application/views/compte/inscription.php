@@ -1,12 +1,16 @@
 <div class="connexion">
     <form action="" method="post">
 
-        <label for="prenom" class="prenom">Prénom</label>
-        <input type="text" name="prenom" id="prenom" value="<?php echo set_value('prenom');?>">
+        <div class="prenom">
+            <label for="prenom" >Prénom</label>
+            <input type="text" name="prenom" id="prenom" value="<?php echo set_value('prenom');?>">
+        </div>
 
+        <div class="nom">
+            <label for="nom" >Nom</label>
+            <input type="text" name="nom" id="nom" value="<?php echo set_value('nom');?>">
+        </div>
 
-        <label for="nom" class="nom">Nom</label>
-        <input type="text" name="nom" id="nom" value="<?php echo set_value('nom');?>">
 
 
         <label for="login">Nom d'utilisateur</label>
