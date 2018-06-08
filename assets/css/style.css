@@ -44,8 +44,22 @@ header .compte{
     padding: 30px;
 }
 
+.div2elem{
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+.div2elemfin{
+    display: block;
+    width: 50%;
+}
+
 /*----------------------------------------form--------------------------------------*/
 
+form textarea{
+    box-sizing: border-box;
+}
 
 form p {
     margin: 0;
@@ -72,12 +86,6 @@ form label{
     margin: 0px;
 }
 
-.connexion .prenom, .connexion .nom{
-    display: block;
-    width: 50%;
-    float: left;
-}
-
 /*----------------------------------------doudle---------------------------------*/
 
 .doudle textarea{
@@ -89,3 +97,17 @@ form label{
     width: 40%;
     margin: auto;
 }
+
+.date{
+    display: block;
+}
+
+ .date label{
+    display: inline;
+ }
+
+ .date input{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+ }

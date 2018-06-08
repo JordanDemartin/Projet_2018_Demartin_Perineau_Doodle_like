@@ -9,8 +9,11 @@ class Doudle extends CI_Controller {
         loadpage("Index","doudle/index");
     }
 
-    public function creation_1()
+    public function creation($nombre_date=1)
     {
+        if ($nombre_date<1) {
+            $nombre_date=1;
+        }
         if (!$this->session->connecter) {
             redirect('/compte/connexion', 'auto');
         }
@@ -22,28 +25,17 @@ class Doudle extends CI_Controller {
 		$this->form_validation->set_rules('lieu', 'lieu', 'required|trim');
         $this->form_validation->set_rules('description', 'description', 'required|trim');
 
+        for ($i=0; $i < $nombre_date; $i++) {
+            $this->form_validation->set_rules('date_'.$i, 'date_'.$i , 'required|trim|regex_match[/(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d/]');
+        }
+
         if ($this->form_validation->run() == true) {
 
-            redirect('/doudle/creation_2', 'auto');
+            redirect("doudle/index");
         }
 
 
-        loadpage("Création Doudle","doudle/creation");
-
-    }
-
-    public function creation_2()
-    {
-        if (!$this->session->connecter) {
-            redirect('/compte/connexion', 'auto');
-        }
-
-        $this->load->library('form_validation');
-		$this->load->helper('form');
-
-        loadpage("Création Doudle","doudle/creation_date");
-
-
+        loadpage("Création Doudle","doudle/creation",["nombre_date"=> $nombre_date]);
 
     }
 

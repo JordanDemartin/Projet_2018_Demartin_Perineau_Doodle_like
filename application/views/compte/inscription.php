@@ -1,12 +1,12 @@
 <div class="connexion">
     <form action="" method="post">
 
-        <div class="prenom">
+        <div class="div2elem">
             <label for="prenom" >Prénom</label>
             <input type="text" name="prenom" id="prenom" value="<?php echo set_value('prenom');?>">
         </div>
 
-        <div class="nom">
+        <div class="div2elem">
             <label for="nom" >Nom</label>
             <input type="text" name="nom" id="nom" value="<?php echo set_value('nom');?>">
         </div>
