@@ -2,13 +2,13 @@
     <form action="" method="post">
 
         <label for="email">E-mail
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required>
         </label>
 
 
         <input type="submit" value="envoyer">
     </form>
     <p><a href="<?= site_url('compte/inscription') ?>">créer un compte</a></p>
-    <p><a href="<?= site_url('compte/connexion') ?>">Se connecter</a></p> 
+    <p><a href="<?= site_url('compte/connexion') ?>">Se connecter</a></p>
 
 </div>

@@ -5,7 +5,7 @@ class Compte extends CI_Controller {
 
 	public function index()
 	{
-		redirect('/compte/connexion', 'auto');
+		redirect('/compte/connexion');
 	}
 
 	public function connexion()
@@ -24,11 +24,13 @@ class Compte extends CI_Controller {
 			$this->Compte_model->verifUser($post['login']);
 			if ($this->Compte_model->verifUser($post['login'],$post['passw'])) {
 				$this->session->set_userdata(['nom'  => $post['login'],'connecter' => TRUE]);
-				redirect('/doudle', 'auto');
+				redirect('/doudle');
 			}
 			$erreur="mauvais mot de passe";
 		}
+
 		loadpage("Connexion","compte/connexion",["valide"=>$erreur]);
+
 	}
 
 	public function inscription(){
@@ -52,20 +54,16 @@ class Compte extends CI_Controller {
 			if (!$this->Compte_model->verifUser($post['login'])) {
 				array_splice($post,-1);
 				$this->Compte_model->creerCompte($post);
-				redirect('/compte/status', 'auto');
+
+				loadpage("Succes","compte/succes");
 			}else{
 				$compte="le compte existe déjà";
 			}
 
 		}
-
 		loadpage("Inscription","compte/inscription",["compte"=>$compte]);
 
-	}
 
-	public function status()
-	{
-		loadpage("Succes","compte/status");
 	}
 
 	public function motpasseoublier(){
@@ -75,7 +73,7 @@ class Compte extends CI_Controller {
 	public function deconnexion()
 	{
 		$this->session->sess_destroy();
-		redirect('/compte/connexion', 'auto');
+		redirect('/compte/connexion');
 	}
 
 }

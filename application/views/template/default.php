@@ -15,10 +15,13 @@
         <div class="compte">
             <?php if ($compte['connecter']): ?>
                 <a href=<?php echo site_url('/doudle/creation'); ?>>Créer un Doudle</a>
+                <a href=<?php echo $compte['lien']; ?>><?php echo $compte['contenue']; ?></a>
             <?php endif; ?>
-            <a href=<?php echo $compte['lien']; ?>><?php echo $compte['contenue']; ?></a>
+
             <?php if ($compte['connecter']): ?>
                 <a href=<?php echo site_url('/compte/deconnexion'); ?>>deconnexion</a>
+            <?php else: ?>
+                <a href=<?php echo site_url('/compte/connexion'); ?>>connexion</a>
             <?php endif; ?>
         </div>
     </header>
