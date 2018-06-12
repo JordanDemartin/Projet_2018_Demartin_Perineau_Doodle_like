@@ -1,6 +1,6 @@
 
 <div class="connexion">
-    <form action="" method="post">
+    <form action=<?php echo current_url(); ?> method="post">
         <label for="login">Nom d'utilisateur</label>
         <input type="text" name="login" id="login" required value="<?php echo set_value('login');?>">
 

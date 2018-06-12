@@ -1,5 +1,5 @@
 <div class="connexion">
-    <form action="" method="post">
+    <form action=<?php echo current_url(); ?> method="post">
 
         <div class="div2elem">
             <label for="prenom" >Prénom</label>

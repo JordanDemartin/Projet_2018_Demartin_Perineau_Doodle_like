@@ -1,5 +1,5 @@
 <div class="connexion">
-    <form action="" method="post">
+    <form action=<?php echo current_url(); ?> method="post">
 
         <label for="email">E-mail
         <input type="email" name="email" id="email" required>

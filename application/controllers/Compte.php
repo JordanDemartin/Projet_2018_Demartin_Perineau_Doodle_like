@@ -21,7 +21,6 @@ class Compte extends CI_Controller {
 			$this->load->model('Compte_model');
 
 			$post=$this->input->post(null);
-			$this->Compte_model->verifUser($post['login']);
 			if ($this->Compte_model->verifUser($post['login'],$post['passw'])) {
 				$this->session->set_userdata(['nom'  => $post['login'],'connecter' => TRUE]);
 				redirect('/doudle');
