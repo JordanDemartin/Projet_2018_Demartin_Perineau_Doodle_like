@@ -53,8 +53,8 @@ class Compte extends CI_Controller {
 			if (!$this->Compte_model->verifUser($post['login'])) {
 				array_splice($post,-1);
 				$this->Compte_model->creerCompte($post);
+				redirect('/compte/status');
 
-				loadpage("Succes","compte/succes");
 			}else{
 				$compte="le compte existe déjà";
 			}
@@ -63,6 +63,10 @@ class Compte extends CI_Controller {
 		loadpage("Inscription","compte/inscription",["compte"=>$compte]);
 
 
+	}
+
+	public function status(){
+		loadpage("Succes","compte/succes");
 	}
 
 	public function motpasseoublier(){

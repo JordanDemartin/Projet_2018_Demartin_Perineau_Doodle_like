@@ -36,12 +36,8 @@ class Doudle extends CI_Controller {
             $post=$this->input->post(null);
             $valide=true;
             for ($i=0; $i < $nombre_date; $i++) {
-                if (!preg_match( "/(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d\d\d\d/" , $post['date_'.$i] )) {
-                    if (!preg_match( "/([0-1][0-9])|2[0-3]|([0-9])/" , $post['heure_'.$i])) {
-                        if (!preg_match( "/([1-5][0-9])|(0[1-9])|([1-9])/" , $post['minute_'.$i])){
-                            $valide=false;
-                        }
-                    }
+                if (!(preg_match( "/(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d\d\d\d/" , $post['date_'.$i] ) && preg_match( "/([0-5][0-9])|([0-9])/" , $post['minute_'.$i]) && preg_match( "/([0-1][0-9])|2[0-3]|([0-9])/" , $post['heure_'.$i]))) {
+                    $valide=false;
                 }
 
             }
@@ -67,6 +63,6 @@ class Doudle extends CI_Controller {
         loadpage("Participer Doudle","doudle/participer");
     }
 
-    
+
 
 }
