@@ -9,23 +9,10 @@ class Sondage_model extends CI_Model {
     }
 
     public function creerSondage($data)
-    {//dans $data, titre lieu descriptif et createur sont déjà remplis
-        do{
-        $data['cle']=rand(0,2000000000);//2 miliards
-        
-        $requete=$this->db->select('cle')
-                 ->from('doudle_sondage')
-                 ->where('cle',$data['cle'])
-                 ->get();
-
-        $resultat=$requete->result();
-
-        }while(count($resultat) != 0); //peut être mettre cette partie dans un controller pour qu'il ait la clé pour après créer les dates
-
-
+    {//dans $data, clée titre lieu descriptif et createur sont déjà remplis
 
         $data['etat']="En cours"; //états: En cours et Clos
-        
+
         $this->db->insert('doudle_sondage', $data);
     }
 
