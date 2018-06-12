@@ -9,7 +9,7 @@ class Sondage_model extends CI_Model {
     }
 
     public function creerSondage($data)
-    {//dans $data, clée titre lieu descriptif et createur sont déjà remplis
+    {//dans $data, cle titre lieu descriptif et createur sont déjà remplis
 
         $data['etat']="En cours"; //états: En cours et Clos
 

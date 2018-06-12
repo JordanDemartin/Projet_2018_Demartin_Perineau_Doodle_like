@@ -31,7 +31,7 @@ $( function() {
             </div>
         <?php endfor; ?>
 
-        <input type="submit" value="valider" class="div2elem">
+        <button type="submit" class="div2elem" formaction=<?php echo site_url('/doudle/creation/').($nombre_date) ?>>valider</button>
         <button type="submit" class="div4" formnovalidate formaction=<?php echo site_url('/doudle/creation/').($nombre_date+1) ?>>ajouter date</button>
         <button type="submit" class="div4fin" formnovalidate formaction=<?php echo site_url('/doudle/creation/').($nombre_date-1)."/true" ?>>enlever date</button>
 

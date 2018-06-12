@@ -29,6 +29,7 @@ class Doudle extends CI_Controller {
         for ($i=0; $i < $nombre_date; $i++) {
             $this->form_validation->set_rules('date_'.$i, 'date_'.$i , 'required|trim');
             $this->form_validation->set_rules('heure_'.$i, 'heure_'.$i , 'required|trim');
+            $this->form_validation->set_rules('minute_'.$i, 'minute_'.$i , 'required|trim');
         }
 
         if ($this->form_validation->run() == true && $retirer==="flase") {
@@ -36,14 +37,25 @@ class Doudle extends CI_Controller {
             $post=$this->input->post(null);
             $valide=true;
             for ($i=0; $i < $nombre_date; $i++) {
-                if (!(preg_match( "/(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d\d\d\d/" , $post['date_'.$i] ) && preg_match( "/([0-5][0-9])|([0-9])/" , $post['minute_'.$i]) && preg_match( "/([0-1][0-9])|2[0-3]|([0-9])/" , $post['heure_'.$i]))) {
+                if (!(preg_match( "/^((0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d\d\d\d)$/" , $post['date_'.$i] ) && preg_match( "/^(([0-5][0-9])|([0-9]))$/" , $post['minute_'.$i]) && preg_match( "/^(([0-1][0-9])|2[0-3]|([0-9]))$/" , $post['heure_'.$i]))) {
                     $valide=false;
                 }
 
             }
             if ($valide) {
+                $this->load->model("Sondage_model");
+                $this->load->model("Date_model");
                 list($usec, $sec) = explode(" ", microtime());
                 $cle = dechex(date("HisdmY").($usec*1000));
+
+                $this->Sondage_model->creerSondage(["cle"=>$cle , "titre" => $post['titre'] , "lieu" => $post["lieu"] , "descriptif" => $post['description'] , "createur" => $this->session->nom]);
+
+                for ($i=0; $i < $nombre_date; $i++) {
+                    $tmp=explode( "/" , $post['date_'.$i]);
+                    $envoi= ["jour" => $tmp[0], "mois" => $tmp[1], "annee" => $tmp[2], "heure" => $post["heure_".$i], "minu" => $post["minute_".$i], "sondage"=>$cle];
+
+                    $this->Date_model->creerDate($envoi);
+                }
                 redirect("/doudle/succes/$cle");
             }
 
