@@ -15,14 +15,14 @@ class Date_model extends CI_Model {
     }
 
 
-    public function getDate($cleDate)
+    public function getDate($sondage)
     {
         $requete=$this->db->select('*')
                  ->from('doudle_date')
-                 ->where('cleDate',$cleDate)
+                 ->where('sondage',$sondage)
                  ->get();
 
-        return $resultat=$requete->result();
+        return $resultat=$requete->result_array();
     }
 
 }

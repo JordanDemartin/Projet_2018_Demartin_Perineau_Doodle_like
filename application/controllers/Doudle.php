@@ -45,8 +45,13 @@ class Doudle extends CI_Controller {
             if ($valide) {
                 $this->load->model("Sondage_model");
                 $this->load->model("Date_model");
-                list($usec, $sec) = explode(" ", microtime());
-                $cle = dechex(date("HisdmY").($usec*1000));
+
+                do {
+                    list($usec, $sec) = explode(" ", microtime());
+                    $cle = dechex(date("HisdmY").($usec*1000));
+                    $this->Sondage_model->getSondage($cle);
+                    var_dump($this->Sondage_model->getSondage($cle));
+                } while (count($this->Sondage_model->getSondage($cle)) != 0);
 
                 $this->Sondage_model->creerSondage(["cle"=>$cle , "titre" => $post['titre'] , "lieu" => $post["lieu"] , "descriptif" => $post['description'] , "createur" => $this->session->nom]);
 
@@ -56,6 +61,7 @@ class Doudle extends CI_Controller {
 
                     $this->Date_model->creerDate($envoi);
                 }
+                $this->Date_model->creerDate(["sondage"=>$cle]);
                 redirect("/doudle/succes/$cle");
             }
 
@@ -72,9 +78,62 @@ class Doudle extends CI_Controller {
     {
         $this->load->library('form_validation');
 		$this->load->helper('form');
-        loadpage("Participer Doudle","doudle/participer");
+        $this->load->model("Date_model");
+        $dates=$this->Date_model->getDate($cle);
+
+        if (count($dates) == 0) {
+            loadpage("Doudle non disponible","doudle/non_dispo");
+            return;
+        }
+
+        $this->form_validation->set_rules('prenom', 'prenom', 'required|alpha|trim');
+		$this->form_validation->set_rules('nom', 'nom', 'required|alpha|trim');
+        $this->form_validation->set_rules('valider');
+
+        if ($this->form_validation->run() == true) {
+            $post=$this->input->post(null);
+
+            $this->load->model("Participant_model");
+            $idper=$this->Participant_model->creerParticipant(["prenom"=>$post['prenom'], "nom"=>$post['nom']]);
+
+            if (isset($post['valider'])) {
+                foreach ($post['valider'] as $value) {
+                    var_dump($value);
+                    $this->Participant_model->ajouterVote($value,$idper);
+                }
+            }else{
+
+                foreach ($dates as $value) {
+                    if ($value['jour'] === null) {
+                        $this->Participant_model->ajouterVote($value['cleDate'],$idper);
+                    }
+                }
+            }
+
+            redirect("/doudle/succes_part/$cle");
+
+        }
+
+        loadpage("Participer Doudle","doudle/participer",['dates'=>$dates]);
     }
 
+    public function succes_part($cle=""){
+        loadpage("Participer succes","doudle/succes_part",['cle'=>$cle]);
+    }
 
+    public function resultat($cle='')
+    {
+        $this->load->library('form_validation');
+		$this->load->helper('form');
+        $this->load->model("Date_model");
+        $dates=$this->Date_model->getDate($cle);
+
+        if (count($dates) == 0) {
+            loadpage("Doudle non disponible","doudle/non_dispo");
+            return;
+        }
+
+        loadpage("Resultat doudle","doudle/resultat");
+    }
 
 }

@@ -10,8 +10,19 @@ class Participant_model extends CI_Model {
 
 	public function creerParticipant($data)
     {//dans $data, prenom et nom sont déjà remplis
-
+        $requete=$this->db->select('max(id)')
+                 ->from('doudle_participant')
+                 ->get();
+        $id=$requete->result_array();
+        if ($id[0]['max(id)']==null) {
+            $idmax=0;
+        }else {
+            $idmax=(int)$id[0]['max(id)']+1;
+        }
+        $data=array_merge(['id'=>$idmax],$data);
         $this->db->insert('doudle_participant', $data);
+
+        return $idmax;
     }
 
     public function getParticipant($participant)
@@ -31,6 +42,6 @@ class Participant_model extends CI_Model {
 
         $data['cleDate']=$date;
 
-        $this->db->insert('doudle_participant', $data);
+        $this->db->insert('doudle_vote', $data);
     }
 }
