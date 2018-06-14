@@ -79,4 +79,17 @@ class Compte extends CI_Controller {
 		redirect('/compte/connexion');
 	}
 
+	public function mesDoudle()
+	{
+		if (!$this->session->connecter) {
+            redirect('/compte/connexion');
+        }
+
+		$this->load->model('Compte_model');
+
+		$doudle=$this->Compte_model->getSondage($this->session->nom);
+
+		loadpage("mes Doulde","/compte/mesDoudle",["doudle"=>$doudle]);
+	}
+
 }

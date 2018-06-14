@@ -15,7 +15,7 @@
         <div class="compte">
             <?php if ($compte['connecter']): ?>
                 <a href=<?php echo site_url('/doudle/creation'); ?>>Créer un Doudle</a>
-                <a href=<?php echo $compte['lien']; ?>><?php echo $compte['contenue']; ?></a>
+                <a href=<?php echo site_url('/compte/mesDoudle'); ?>><?php echo $compte['contenue']; ?></a>
             <?php endif; ?>
 
             <?php if ($compte['connecter']): ?>

@@ -34,5 +34,14 @@ class Compte_model extends CI_Model {
         return false;
     }
 
+    public function getSondage($login)
+    {
+        $requete=$this->db->select('*')
+                 ->from('doudle_sondage')
+                 ->where('createur',$login)
+                 ->get();
+
+        return $requete->result_array();
+    }
 
 }

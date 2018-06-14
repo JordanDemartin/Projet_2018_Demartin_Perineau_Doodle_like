@@ -2,6 +2,7 @@
     <p>titre : <?php echo $titre ?></p>
     <p>lieu : <?php echo $lieu ?></p>
     <p>description : <?php echo $descriptif ?></p>
+    <p>lien : <a href=<?php echo site_url("/doudle/participer/").$cle; ?>><?php echo "http://".$_SERVER['HTTP_HOST'].site_url("/doudle/participer/").$cle; ?></a></p>
 
     <table>
         <tr>
@@ -21,7 +22,7 @@
             <?php endforeach; ?>
         </tr>
         <tr>
-            <th></th>
+            <th>total</th>
             <?php foreach ($total as $value): ?>
                 <th><?php echo $value; ?></th>
             <?php endforeach; ?>

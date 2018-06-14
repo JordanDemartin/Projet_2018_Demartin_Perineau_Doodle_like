@@ -1,5 +1,4 @@
 <div class="doudle">
-    <p>lien : <a href=<?php echo current_url(); ?>><?php echo current_url(); ?></a></p>
     <form action=<?php echo current_url(); ?> method="post">
         <div class="div2elem">
             <label for="prenom" >Prénom</label>
