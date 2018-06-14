@@ -32,7 +32,7 @@ class Participant_model extends CI_Model {
                  ->where('participant',$participant)
                  ->get();
 
-        return $resultat=$requete->result();
+        return $requete->result();
     }
 
     public function ajouterVote($date,$participant)

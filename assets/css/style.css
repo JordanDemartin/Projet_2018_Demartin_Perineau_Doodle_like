@@ -7,7 +7,7 @@ html,body{
 
 
 header{
-    z-index: -1100000;
+    z-index: -10000;
     position: fixed;
     top: 0px;
     width: 100%;
@@ -125,4 +125,13 @@ form label{
     display: inline-block;
     width: 100px;
     text-align: center;
+ }
+
+
+
+ .doudle_res th {
+     border: 1px solid black;
+ }
+ .doudle_res td {
+     border: 1px solid black;
  }

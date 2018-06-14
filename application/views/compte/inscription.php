@@ -3,12 +3,12 @@
 
         <div class="div2elem">
             <label for="prenom" >Prénom</label>
-            <input type="text" name="prenom" id="prenom" required value="<?php echo set_value('prenom');?>">
+            <input type="text" name="prenom" id="prenom" pattern="[a-zA-Z]+" required value="<?php echo set_value('prenom');?>">
         </div>
 
         <div class="div2elem">
             <label for="nom" >Nom</label>
-            <input type="text" name="nom" id="nom" required value="<?php echo set_value('nom');?>">
+            <input type="text" name="nom" id="nom" pattern="[a-zA-Z]+" required value="<?php echo set_value('nom');?>">
         </div>
 
 
@@ -19,7 +19,7 @@
 
 
         <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" required value="<?php echo set_value('email');?>">
+        <input type="email" name="email" id="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required value="<?php echo set_value('email');?>">
 
 
         <label for="password">Mot de passe</label>

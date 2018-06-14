@@ -71,7 +71,7 @@ class Doudle extends CI_Controller {
     }
 
     public function succes($cle){
-        loadpage("création réusite","doudle/creation_final",['url'=> "http://".$_SERVER['HTTP_HOST'].site_url("doudle/participer")."/".$cle]);
+        loadpage("création réusite","doudle/creation_final",['url'=> "http://".$_SERVER['HTTP_HOST'].site_url("doudle/participer")."/".$cle,"cle"=>$cle]);
     }
 
     public function participer($cle='')
@@ -126,14 +126,66 @@ class Doudle extends CI_Controller {
         $this->load->library('form_validation');
 		$this->load->helper('form');
         $this->load->model("Date_model");
+        $this->load->model("Sondage_model");
+        $sondage=$this->Sondage_model->getSondage($cle);
         $dates=$this->Date_model->getDate($cle);
 
-        if (count($dates) == 0) {
+        if (count($sondage) == 0) {
             loadpage("Doudle non disponible","doudle/non_dispo");
             return;
         }
 
-        loadpage("Resultat doudle","doudle/resultat");
+        $vote=$this->Sondage_model->getParticipant($cle);
+        $i=-1;
+        $y=0;
+        $ancien=-1;
+        $participant=null;
+        foreach ($vote as $value) {
+            if ($value["cleParticipant"]!=$ancien) {
+                $ancien=(int)$value["cleParticipant"];
+                $i++;
+                $participant[$i]["cleParticipant"]=$value["cleParticipant"];
+                $participant[$i]["prenom"]=$value["prenom"];
+                $participant[$i]["nom"]=$value["nom"];
+                $y=0;
+            }
+
+            $participant[$i]['dates'][$y]=$value["cleDate"];
+            $y++;
+        }
+
+        for ($i=0; $i < count($dates); $i++) {
+            $total[$i]=0;
+        }
+
+        $i=0;
+        if (count($vote)!=0) {
+            foreach ($participant as $part) {
+                // un participant
+                $y=0;
+                foreach ($dates as  $date) {
+                    // une date
+                    $participant[$i]['dates'][$y]='rond_rouge';
+                    foreach ($part["dates"] as $value) {
+                        // une date participant
+                        if ($value==$date['cleDate']) {
+                            $participant[$i]['dates'][$y]='rond_vert';
+                            $total[$y]+=1;
+                        }
+
+                    }
+                    $y++;
+                }
+                $i++;
+            }
+        }
+
+
+        $donne=array_merge($sondage[0],["dates"=>$dates,"personnes"=>$participant,"total"=>$total,"cle"=>$cle]);
+
+        loadpage("Resultat doudle","doudle/resultat",$donne);
     }
+
+    
 
 }

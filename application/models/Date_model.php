@@ -22,7 +22,7 @@ class Date_model extends CI_Model {
                  ->where('sondage',$sondage)
                  ->get();
 
-        return $resultat=$requete->result_array();
+        return $requete->result_array();
     }
 
 }

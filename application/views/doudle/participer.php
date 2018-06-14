@@ -3,12 +3,12 @@
     <form action=<?php echo current_url(); ?> method="post">
         <div class="div2elem">
             <label for="prenom" >Prénom</label>
-            <input type="text" name="prenom" id="prenom" required value="<?php echo set_value('prenom');?>">
+            <input type="text" name="prenom" pattern="[a-zA-Z]+" id="prenom" required value="<?php echo set_value('prenom');?>">
         </div>
 
         <div class="div2elem">
             <label for="nom" >Nom</label>
-            <input type="text" name="nom" id="nom" required value="<?php echo set_value('nom');?>">
+            <input type="text" name="nom" pattern="[a-zA-Z]+" id="nom" required value="<?php echo set_value('nom');?>">
         </div>
         <table>
             <tr>

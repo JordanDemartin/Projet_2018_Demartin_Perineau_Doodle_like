@@ -10,13 +10,13 @@ $( function() {
 
     <form action=<?php echo current_url(); ?> method="post">
         <label for="titre">titre</label>
-        <input type="text" name="titre" id="titre" required value="<?php echo set_value('titre');?>">
+        <input type="text" name="titre" id="titre" maxlength="50" required value="<?php echo set_value('titre');?>">
 
         <label for="lieu">lieu</label>
-        <input type="text" name="lieu" id="lieu" required value="<?php echo set_value('lieu');?>">
+        <input type="text" name="lieu" id="lieu" maxlength="50" required value="<?php echo set_value('lieu');?>">
 
         <label for="description">description</label>
-        <textarea name="description" id="description"><?php echo set_value('description');?></textarea>
+        <textarea name="description" id="description" maxlength="200"><?php echo set_value('description');?></textarea>
 
         <br><br>
 
