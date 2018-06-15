@@ -70,10 +70,6 @@ class Compte extends CI_Controller {
 		loadpage("Succes","compte/succes");
 	}
 
-	public function motpasseoublier(){
-		loadpage("Mot de passe oublier","compte/motpasseoublier");
-	}
-
 	public function deconnexion()
 	{
 		$this->session->sess_destroy();
