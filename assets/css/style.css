@@ -6,7 +6,7 @@ html,body{
 /*----------------------------------------entete--------------------------------*/
 
 
-header{
+header{z-index: -41111;
     position: fixed;
     top: 0px;
     width: 100%;
@@ -31,6 +31,15 @@ header a{
 
 header a img{
     height: 60px;
+    width: 177px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+header .bare{
+    left: 177px;
+    margin-left: 20px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

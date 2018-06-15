@@ -82,14 +82,14 @@ class Doudle extends CI_Controller {
         $dates=$this->Date_model->getDate($cle);
 
         if (count($dates) == 0) {
-            loadpage("Doudle non disponible","doudle/non_dispo");
+            loadpage("Doudle non disponible","doudle/non_dispo",["text"=>"n'existe pas"]);
             return;
         }
 
         $this->load->model("Sondage_model");
         $doudle=$this->Sondage_model->getSondage($cle);
         if ($doudle[0]["etat"]!="En cours") {
-            loadpage("Doudle non disponible","doudle/non_dispo");
+            loadpage("Doudle non disponible","doudle/non_dispo",["text"=>"est actuellement est ferme"]);
             return;
         }
 
@@ -138,9 +138,14 @@ class Doudle extends CI_Controller {
         $dates=$this->Date_model->getDate($cle);
 
         if (count($sondage) == 0) {
-            loadpage("Doudle non disponible","doudle/non_dispo");
+            loadpage("Doudle non disponible","doudle/non_dispo",["text"=>"n'existe pas"]);
             return;
         }
+
+        $len=count($dates);
+        $first=$dates[0];
+        array_shift($dates);
+        $dates[$len]=$first;
 
         $vote=$this->Sondage_model->getParticipant($cle);
         $i=-1;
@@ -193,7 +198,7 @@ class Doudle extends CI_Controller {
         loadpage("Resultat doudle","doudle/resultat",$donne);
     }
 
-    public function modetat($cle='',$value='En_cours')
+    public function modetat($cle='',$value='En_cours',$validation="flase")
     {
         if (!$this->session->connecter) {
             redirect('/compte/connexion');
@@ -211,7 +216,15 @@ class Doudle extends CI_Controller {
         if ($value=="En_cours") {
             $this->Sondage_model->modifEtat($cle,"En cours");
         }else if ($value=="supprimer") {
-            $this->Sondage_model->supprimeSondage($cle);
+
+            loadpage("confirmation suppression","doudle/supr",$cle);
+
+            if ($validation=='true') {
+                $this->Sondage_model->supprimeSondage($cle);
+            }else {
+                return;
+            }
+
         }else if ($value=="Clos") {
             $this->Sondage_model->modifEtat($cle,"Clos");
         }

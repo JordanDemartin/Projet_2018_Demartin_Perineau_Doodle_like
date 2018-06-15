@@ -11,8 +11,8 @@
         </div>
         <table>
             <tr>
-                <th>date</th>
-                <th>heure</th>
+                <th>Date</th>
+                <th>Heure</th>
                 <th></th>
             </tr>
             <?php foreach ($dates as $value): ?>

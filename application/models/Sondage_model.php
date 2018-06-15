@@ -42,7 +42,7 @@ class Sondage_model extends CI_Model {
         //                    ->where('doudle_participant.id','doudle_vote.cleParticipant')
         //                    ->get();
 
-        $requete=$this->db->query("SELECT doudle_vote.cleDate,prenom,nom,cleParticipant FROM doudle_vote,doudle_date,doudle_participant WHERE doudle_date.cleDate=doudle_vote.cleDate and doudle_date.sondage=? and doudle_participant.id=doudle_vote.cleParticipant order by nom",$sondage);
+        $requete=$this->db->query("SELECT doudle_vote.cleDate,prenom,nom,cleParticipant FROM doudle_vote,doudle_date,doudle_participant WHERE doudle_date.cleDate=doudle_vote.cleDate and doudle_date.sondage=? and doudle_participant.id=doudle_vote.cleParticipant order by nom,prenom",$sondage);
 
         return $requete->result_array();
     }

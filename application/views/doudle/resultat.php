@@ -1,8 +1,11 @@
 <div class="doudle_res">
-    <p>titre : <?php echo $titre ?></p>
-    <p>lieu : <?php echo $lieu ?></p>
-    <p>description : <?php echo $descriptif ?></p>
-    <p>lien : <a href=<?php echo site_url("/doudle/participer/").$cle; ?>><?php echo "http://".$_SERVER['HTTP_HOST'].site_url("/doudle/participer/").$cle; ?></a></p>
+    <p>Titre : <?php echo $titre ?></p>
+    <p>Lieu : <?php echo $lieu ?></p>
+    <p>Description : <?php echo $descriptif ?></p>
+    <p>État : <?php echo $etat; ?></p>
+    <?php if ($etat==="En cours"): ?>
+        <p>Lien : <a href=<?php echo site_url("/doudle/participer/").$cle; ?>><?php echo "http://".$_SERVER['HTTP_HOST'].site_url("/doudle/participer/").$cle; ?></a></p>
+    <?php endif; ?>
 
     <table>
         <tr>
@@ -16,13 +19,13 @@
                 <?php if ($value['jour'] !==null): ?>
                     <th><?php echo $value['jour']."/".$value['mois']."/".$value['annee']." ".$value['heure'].":".$value['minu']; ?></th>
                 <?php else: ?>
-                    <th>aucune</th>
+                    <th>Aucune des dates</th>
                 <?php endif; ?>
 
             <?php endforeach; ?>
         </tr>
         <tr>
-            <th>total</th>
+            <th>Total</th>
             <?php foreach ($total as $value): ?>
                 <th><?php echo $value; ?></th>
             <?php endforeach; ?>
@@ -43,6 +46,8 @@
 
 
     </table>
+    <?php if ($etat==="En cours"): ?>
+        <a href=<?php echo site_url('/doudle/participer/').$cle; ?>>Participer</a>
+    <?php endif; ?>
 
-    <a href=<?php echo site_url('/doudle/participer/').$cle; ?>>participer</a>
 </div>

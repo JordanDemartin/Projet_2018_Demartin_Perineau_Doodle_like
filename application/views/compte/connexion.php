@@ -11,6 +11,6 @@
         <input type="submit" value="Connexion">
     </form>
     <p><a href="<?= site_url('compte/motpasseoublier') ?>">Mot de passe oublié</a></p>
-    <p><a href="<?= site_url('compte/inscription') ?>">créer un compte</a></p>
+    <p><a href="<?= site_url('compte/inscription') ?>">Créer un compte</a></p>
 
 </div>

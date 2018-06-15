@@ -12,16 +12,23 @@
 
     <header>
         <a href=<?php echo site_url('/'); ?>><img src="<?=base_url();?>/assets/image/logo.png" alt="doodle"></a>
-        <div class="compte">
+
+        <div class="bare">
             <?php if ($compte['connecter']): ?>
                 <a href=<?php echo site_url('/doudle/creation'); ?>>Créer un Doudle</a>
-                <a href=<?php echo site_url('/compte/mesDoudle'); ?>><?php echo $compte['contenue']; ?></a>
+                <a href=<?php echo site_url('/compte/mesDoudle'); ?>>Mes doudles</a>
+            <?php endif; ?>
+        </div>
+
+        <div class="compte">
+            <?php if ($compte['connecter']): ?>
+                <?php echo $compte['contenue']; ?>
             <?php endif; ?>
 
             <?php if ($compte['connecter']): ?>
-                <a href=<?php echo site_url('/compte/deconnexion'); ?>>deconnexion</a>
+                <a href=<?php echo site_url('/compte/deconnexion'); ?>>Déconnexion</a>
             <?php else: ?>
-                <a href=<?php echo site_url('/compte/connexion'); ?>>connexion</a>
+                <a href=<?php echo site_url('/compte/connexion'); ?>>Connexion</a>
             <?php endif; ?>
         </div>
     </header>

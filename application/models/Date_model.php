@@ -20,6 +20,11 @@ class Date_model extends CI_Model {
         $requete=$this->db->select('*')
                  ->from('doudle_date')
                  ->where('sondage',$sondage)
+                 ->order_by('annee')
+                 ->order_by('mois')
+                 ->order_by('jour')
+                 ->order_by('heure')
+                 ->order_by('minu')  
                  ->get();
 
         return $requete->result_array();

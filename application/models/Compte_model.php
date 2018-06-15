@@ -39,6 +39,9 @@ class Compte_model extends CI_Model {
         $requete=$this->db->select('*')
                  ->from('doudle_sondage')
                  ->where('createur',$login)
+                 ->order_by('etat','DESC')
+                 ->order_by('titre')
+                 ->order_by('lieu')
                  ->get();
 
         return $requete->result_array();

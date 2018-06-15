@@ -9,13 +9,13 @@ $( function() {
 <div class="doudle">
 
     <form action=<?php echo current_url(); ?> method="post">
-        <label for="titre">titre</label>
+        <label for="titre">Titre</label>
         <input type="text" name="titre" id="titre" maxlength="50" required value="<?php echo set_value('titre');?>">
 
-        <label for="lieu">lieu</label>
+        <label for="lieu">Lieu</label>
         <input type="text" name="lieu" id="lieu" maxlength="50" required value="<?php echo set_value('lieu');?>">
 
-        <label for="description">description</label>
+        <label for="description">Description</label>
         <textarea name="description" id="description" maxlength="200"><?php echo set_value('description');?></textarea>
 
         <br><br>
@@ -25,15 +25,15 @@ $( function() {
             <div class="date">
                 <label for="date_<?php echo $i ?>">Date :</label>
                 <input type="text" name="date_<?php echo $i ?>" pattern="(0[1-9]|[1-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/\d\d\d\d" required id="date_<?php echo $i ?>" class="calendrier" value=<?php echo set_value('date_'.$i);?>>
-                <label for="heure_<?php echo $i ?>">heure :</label>
+                <label for="heure_<?php echo $i ?>">Heure :</label>
                 <input type="text" name="heure_<?php echo $i ?>" id="heure_<?php echo $i ?>" pattern="([0-1][0-9])|2[0-3]|([0-9])" required value=<?php echo set_value('heure_'.$i);?>>:
                 <input type="text" name="minute_<?php echo $i ?>" pattern="([0-5][0-9])|([0-9])" required value=<?php echo set_value('minute_'.$i);?>>
             </div>
         <?php endfor; ?>
 
-        <button type="submit" class="div2elem" formaction=<?php echo site_url('/doudle/creation/').($nombre_date) ?>>valider</button>
-        <button type="submit" class="div4" formnovalidate formaction=<?php echo site_url('/doudle/creation/').($nombre_date+1) ?>>ajouter date</button>
-        <button type="submit" class="div4fin" formnovalidate formaction=<?php echo site_url('/doudle/creation/').($nombre_date-1)."/true" ?>>enlever date</button>
+        <button type="submit" class="div2elem" formaction=<?php echo site_url('/doudle/creation/').($nombre_date) ?>>Valider</button>
+        <button type="submit" class="div4" formnovalidate formaction=<?php echo site_url('/doudle/creation/').($nombre_date+1) ?>>Ajouter date</button>
+        <button type="submit" class="div4fin" formnovalidate formaction=<?php echo site_url('/doudle/creation/').($nombre_date-1)."/true" ?>>Enlever date</button>
 
     </form>
 

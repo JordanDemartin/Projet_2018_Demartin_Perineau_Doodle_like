@@ -1,3 +1,3 @@
 <div class="doudle">
-    <h1>votre doudle n'existe pas</h1>
+    <h1>Votre doudle <?php echo $text; ?></h1>
 </div>
