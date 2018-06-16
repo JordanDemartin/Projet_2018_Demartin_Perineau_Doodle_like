@@ -36,8 +36,10 @@
                 <th><?php echo $pers["prenom"]." ".$pers['nom']; ?></th>
 
                 <?php foreach ($pers['dates'] as $value): ?>
-                    <th class=<?php echo $value; ?>>
-                        <?php echo $value; ?>
+                    <th>
+                        <div class=<?php echo $value; ?>>
+
+                        </div>
                     </th>
                 <?php endforeach; ?>
                 </tr>
@@ -47,7 +49,7 @@
 
     </table>
     <?php if ($etat==="En cours"): ?>
-        <a href=<?php echo site_url('/doudle/participer/').$cle; ?>>Participer</a>
+        <a class="bouton" href=<?php echo site_url('/doudle/participer/').$cle; ?>>Participer</a>
     <?php endif; ?>
 
 </div>

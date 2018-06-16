@@ -1,77 +1,145 @@
 html,body{
     margin:0;
     padding:0;
-    height: 100%;
-    width: 100%;
 }
 
 /*----------------------------------------entete--------------------------------*/
 
-.entete{
+
+header{z-index: -41111;
     position: fixed;
-    z-index: 1;
-    background: #ddd;
-    height: 70px;
+    top: 0px;
     width: 100%;
+    height: 80px;
+    background: #ddd;
+
 }
-.entete img{
-    position: relative;
+
+/* header .compte a{
+    text-decoration: none;
+    background-color:
+    padding
+
+    color: #000;
+} */
+
+header a{
+    display: inline-block;
+    height: 100%;
+
+}
+
+header a img{
     height: 60px;
-    float: left;
+    width: 177px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
 }
-.entete .compte{
-    z-index: -1;
-    position: relative;
-    text-align: right;
+
+header .bare{
+    left: 177px;
+    margin-left: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header .compte{
+    right: 0;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
 
 
-/*----------------------------------------page------------------------------------*/
+/*----------------------------------------page--------------------------------------*/
 
 .page{
-    margin-top: 70px;
-    display: inline-block;
+    margin-top: 80px;
+    padding: 30px;
 }
 
-
-/*----------------------------------------connection--------------------------------*/
-
-.connexion{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 40%;
-
-}
-
-.connexion form{
-    display: inline-block;
-    /* text-align: center; */
-    width: 100%;
-}
-
-.connexion input{
-    display: block;
-    margin: 5px auto;
-
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.connexion a{
-    display: block;
-}
-
-.connexion p{
-    margin: 0;
-}
-
-.connexion .prenom, .connexion .nom{
+.div2elem{
     display: block;
     width: 50%;
     float: left;
 }
+
+.div4{
+    display: block;
+    width: 25%;
+    float: left;
+}
+
+.div4fin{
+    display: block;
+    width: 25%;
+}
+
+/*----------------------------------------form--------------------------------------*/
+
+form textarea{
+    box-sizing: border-box;
+}
+
+form p {
+    margin: 0;
+}
+
+form input{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form label{
+    display: block;
+}
+
+
+/*----------------------------------------connexion---------------------------------*/
+
+.connexion{
+    margin: auto;
+    width: 40%;
+}
+
+.connexion p {
+    margin: 0px;
+}
+
+/*----------------------------------------doudle---------------------------------*/
+
+.doudle textarea{
+    width: 100%;
+    height: 150px;
+}
+
+.doudle{
+    width: 40%;
+    margin: auto;
+}
+
+.date{
+    display: block;
+}
+
+ .date label{
+    display: inline;
+ }
+
+ .date input{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+ }
+
+
+
+ .doudle_res th {
+     border: 1px solid black;
+ }
+ .doudle_res td {
+     border: 1px solid black;
+ }

@@ -1,145 +1,176 @@
-html,body{
-    margin:0;
-    padding:0;
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background-image: url("../image/fond.jpg");
+  background-repeat: no-repeat;
+  background-size: contain 100%;
+  background-position: center;
+  background-color: #f7932f;
+}
+
+/*--------------------------------------miser en form--------------------------*/
+.rond_vert {
+  width: 15px;
+  height: 15px;
+  border: 15px solid #01ff01;
+  border-radius: 100%;
+  margin: auto;
+}
+
+.rond_rouge {
+  width: 15px;
+  height: 15px;
+  border: 15px solid #ff8080;
+  border-radius: 100%;
+  margin: auto;
+}
+
+.case_arrondi, a.bouton {
+  text-decoration: none;
+  color: #000;
+  padding: 5px;
+  border-radius: 50px;
+  margin: 5px;
 }
 
 /*----------------------------------------entete--------------------------------*/
-
-
-header{z-index: -41111;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 80px;
-    background: #ddd;
-
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to top, #f7932f, #fab979);
 }
 
-/* header .compte a{
-    text-decoration: none;
-    background-color:
-    padding
-
-    color: #000;
-} */
-
-header a{
-    display: inline-block;
-    height: 100%;
-
+header a {
+  display: inline-block;
+  height: 100%;
 }
 
-header a img{
-    height: 60px;
-    width: 177px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%)
+header img {
+  height: 60px;
+  width: 177px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-header .bare{
-    left: 177px;
-    margin-left: 20px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+header .bare {
+  left: 177px;
+  margin-left: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-header .compte{
-    right: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+header .compte {
+  right: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+header a.bouton {
+  background: linear-gradient(to bottom, #ddf4fa, #5ac7e4);
+  box-shadow: 0px 3px 10px #5ac7e4;
+}
 
+header a.bouton:hover {
+  background: linear-gradient(to top, #b2e5f2, #5ac7e4);
+  box-shadow: none;
+}
 
 /*----------------------------------------page--------------------------------------*/
-
-.page{
-    margin-top: 80px;
-    padding: 30px;
+.page {
+  margin-top: 80px;
+  padding: 30px;
 }
 
-.div2elem{
-    display: block;
-    width: 50%;
-    float: left;
+.div2elem {
+  display: block;
+  width: 50%;
+  float: left;
 }
 
-.div4{
-    display: block;
-    width: 25%;
-    float: left;
+.div4 {
+  display: block;
+  width: 25%;
+  float: left;
 }
 
-.div4fin{
-    display: block;
-    width: 25%;
+.div4fin {
+  display: block;
+  width: 25%;
 }
 
 /*----------------------------------------form--------------------------------------*/
-
-form textarea{
-    box-sizing: border-box;
+form input {
+  width: 100%;
+  box-sizing: border-box;
 }
 
-form p {
-    margin: 0;
+form label {
+  display: block;
 }
 
-form input{
-    width: 100%;
-    box-sizing: border-box;
+form textarea {
+  width: 100%;
+  height: 150px;
 }
-
-form label{
-    display: block;
-}
-
 
 /*----------------------------------------connexion---------------------------------*/
-
-.connexion{
-    margin: auto;
-    width: 40%;
+.connexion {
+  margin: auto;
+  width: 40%;
 }
 
 .connexion p {
-    margin: 0px;
+  margin: 0;
 }
 
 /*----------------------------------------doudle---------------------------------*/
-
-.doudle textarea{
-    width: 100%;
-    height: 150px;
+.doudle {
+  margin: auto;
+  width: 40%;
 }
 
-.doudle{
-    width: 40%;
-    margin: auto;
+.doudle .date {
+  display: block;
 }
 
-.date{
-    display: block;
+.doudle .date label {
+  display: inline;
 }
 
- .date label{
-    display: inline;
- }
+.doudle .date input {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
 
- .date input{
-    display: inline-block;
-    width: 100px;
-    text-align: center;
- }
+.doudle_res table {
+  margin-bottom: 10px;
+  background-color: #ffcb65;
+  padding: 0px;
+}
 
+.doudle_res td {
+  border: 1px solid black;
+}
 
+.doudle_res th {
+  border: 1px solid black;
+  padding: 3px;
+}
 
- .doudle_res th {
-     border: 1px solid black;
- }
- .doudle_res td {
-     border: 1px solid black;
- }
+.doudle_res a.bouton {
+  background: #2f93f7;
+}

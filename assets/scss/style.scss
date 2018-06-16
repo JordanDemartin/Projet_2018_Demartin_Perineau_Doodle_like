@@ -1,0 +1,212 @@
+$taille-img:177px;
+$taille-rond : 15px;
+$header-color:#f7932f;
+
+@mixin rond($coleur){
+    width: $taille-rond;
+    height: $taille-rond;
+    border: $taille-rond solid $coleur;
+    border-radius: 100%;
+    margin: auto;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+}
+
+
+html{
+
+    height: 100%;
+    background-image: url("../image/fond.jpg") ;
+    background-repeat:no-repeat;
+    background-size: contain 100%;
+    background-position: center;
+    background-color: $header-color;
+}
+
+
+/*--------------------------------------miser en form--------------------------*/
+
+.rond_{
+
+    &vert{
+        @include rond(lighten(green,25%));
+    }
+    &rouge{
+        @include rond(lighten(red,25%));
+
+    }
+
+}
+
+.case_arrondi{
+    text-decoration: none;
+    color: #000;
+    padding: 5px;
+    border-radius: 50px;
+    margin: 5px;
+}
+
+a.bouton{
+    @extend .case_arrondi;
+}
+
+
+
+/*----------------------------------------entete--------------------------------*/
+
+header{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, $header-color,lighten($header-color, 15%));
+
+    a{
+        display: inline-block;
+        height: 100%;
+
+    }
+    img{
+        height: 60px;
+        width: $taille-img;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%)
+    }
+
+    .bare{
+        left: $taille-img;
+        margin-left: 20px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .compte{
+        right: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    a.bouton{
+        $color:#5ac7e4;
+        background: linear-gradient(to bottom,lighten($color, 30%), $color);
+        box-shadow: 0px 3px 10px $color;
+
+        &:hover{
+            background: linear-gradient(to top,lighten($color, 20%), $color);
+            box-shadow: none;
+        }
+    }
+
+}
+
+/*----------------------------------------page--------------------------------------*/
+
+.page{
+    margin-top: 80px;
+    padding: 30px;
+
+}
+.div2elem{
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+.div4{
+    display: block;
+    width: 25%;
+    float: left;
+}
+
+.div4fin{
+    display: block;
+    width: 25%;
+}
+
+/*----------------------------------------form--------------------------------------*/
+
+form {
+    // p{
+    //     margin: 0;
+    // }
+
+    input{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    label{
+        display: block;
+    }
+
+    textarea{
+        width: 100%;
+        height: 150px;
+    }
+
+}
+
+/*----------------------------------------connexion---------------------------------*/
+
+.connexion{
+
+    margin: auto;
+    width: 40%;
+    p {
+        margin: 0;
+    }
+}
+
+/*----------------------------------------doudle---------------------------------*/
+
+.doudle{
+    margin: auto;
+    width: 40%;
+
+    .date{
+        display: block;
+
+        label{
+           display: inline;
+        }
+
+        input{
+           display: inline-block;
+           width: 100px;
+           text-align: center;
+        }
+    }
+
+}
+
+.doudle_res{
+    table{
+        margin-bottom: 10px;
+        background-color: #ffcb65;
+        padding: 0px;
+    }
+    td {
+        border: 1px solid black;
+    }
+    th {
+        border: 1px solid black;
+        padding: 3px;
+    }
+    a.bouton{
+        $color: #4dff0e;
+        background: complement($header-color);
+    }
+}
+
+.doudle_doudle{
+
+}

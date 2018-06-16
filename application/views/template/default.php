@@ -15,8 +15,8 @@
 
         <div class="bare">
             <?php if ($compte['connecter']): ?>
-                <a href=<?php echo site_url('/doudle/creation'); ?>>Créer un Doudle</a>
-                <a href=<?php echo site_url('/compte/mesDoudle'); ?>>Mes doudles</a>
+                <a class="bouton" href=<?php echo site_url('/doudle/creation'); ?>>Créer un Doudle</a>
+                <a class="bouton" href=<?php echo site_url('/compte/mesDoudle'); ?>>Mes doudles</a>
             <?php endif; ?>
         </div>
 
@@ -26,9 +26,9 @@
             <?php endif; ?>
 
             <?php if ($compte['connecter']): ?>
-                <a href=<?php echo site_url('/compte/deconnexion'); ?>>Déconnexion</a>
+                <a class="bouton" href=<?php echo site_url('/compte/deconnexion'); ?>>Déconnexion</a>
             <?php else: ?>
-                <a href=<?php echo site_url('/compte/connexion'); ?>>Connexion</a>
+                <a class="bouton" href=<?php echo site_url('/compte/connexion'); ?>>Connexion</a>
             <?php endif; ?>
         </div>
     </header>
