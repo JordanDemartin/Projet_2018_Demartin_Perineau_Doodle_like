@@ -6,7 +6,7 @@ email varchar(100) not null,
 passw varchar(255) not null);
 
 create table doudle_sondage(
-cle int primary key,
+cle varchar(20) primary key,
 titre varchar(50) not null,
 lieu varchar(50) not null,
 etat varchar(10) not null,
@@ -14,22 +14,22 @@ descriptif varchar(200),
 createur varchar(50) not null references doudle_compte);
 
 create table doudle_date(
-cleDate int primary key,
+cleDate int primary key AUTO_INCREMENT,
 jour int not null,
 mois int not null,
 annee int not null,
 heure int not null,
 minu int not null,
-sondage int not null references doudle_sondage);
+sondage varchar(20) not null references doudle_sondage);
 
 create table doudle_participant(
-id int primary key,
+id int primary key AUTO_INCREMENT,
 prenom varchar(50) not null,
 nom varchar(50) not null);
 
 create table doudle_vote(
-cleVote int primary key,
-cleParticipant int references doudle_participant,
+cleVote int primary key AUTO_INCREMENT,
+cleParticipant int not null references doudle_participant,
 cleDate int not null references doudle_date);
 
 
