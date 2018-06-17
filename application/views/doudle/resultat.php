@@ -3,7 +3,11 @@
         <h1><?php echo $titre ?></h1>
         <p>Lieu : <?php echo $lieu ?></p>
         <p>Description : <?php echo $descriptif ?></p>
-        <p>État : <?php echo $etat; ?></p>
+        <p>État :<?php if ($etat=="En cours"): ?>
+            <span class="case_arrondi vert" ><?php echo $etat; ?></span>
+        <?php else: ?>
+            <span class="case_arrondi rouge" ><?php echo $etat; ?></span>
+        <?php endif; ?></p>
         <?php if ($etat==="En cours"): ?>
             <p>Lien : <a href=<?php echo site_url("/doudle/participer/").$cle; ?>><?php echo "http://".$_SERVER['HTTP_HOST'].site_url("/doudle/participer/").$cle; ?></a></p>
         <?php endif; ?>

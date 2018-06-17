@@ -125,6 +125,10 @@ table{
     padding: 0px;
 }
 
+table.ui-datepicker-calendar{
+    background-color: white;
+}
+
 th{
     padding: 3px;
 }
@@ -228,6 +232,22 @@ header{
     }
 }
 
+/*----------------------------------------etat-----------------------------------*/
+
+.etat{
+    margin: auto;
+    width: 40%;
+    padding: 15px;
+    @include bgc-ombre($header-color);
+    color: white ;
+    h1:first-child{
+        margin-top: 0px;
+    }
+    p{
+        margin-bottom: 10px;
+    }
+}
+
 /*----------------------------------------doudle---------------------------------*/
 
 .doudle{
@@ -310,4 +330,7 @@ header{
         border: 1px solid black;
     }
 
+    .case_arrondi{
+        padding: 7px;
+    }
 }
