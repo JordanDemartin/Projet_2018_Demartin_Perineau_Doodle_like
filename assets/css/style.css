@@ -203,6 +203,10 @@ header p {
   margin: 0;
 }
 
+.connexion .div2, .connexion .div2fin {
+  margin-bottom: 10px;
+}
+
 /*----------------------------------------doudle---------------------------------*/
 .doudle {
   margin: auto;
@@ -223,6 +227,10 @@ header p {
   text-align: center;
 }
 
+.doudle .date input:last-child {
+  margin-bottom: 10px;
+}
+
 .doudle_doudle {
   display: inline-block;
   padding: 15px;
@@ -236,7 +244,7 @@ header p {
 }
 
 .doudle_doudle a {
-  color: white;
+  color: #87ff00;
 }
 
 .doudle_doudle .case_arrondi, .doudle_doudle a.bouton {
@@ -264,7 +272,7 @@ header p {
 }
 
 .doudle_res .description a {
-  color: white;
+  color: #87ff00;
 }
 
 .doudle_res .description h1:first-child {
@@ -273,6 +281,10 @@ header p {
 
 .doudle_res .description p:last-child {
   margin-bottom: 0px;
+}
+
+.doudle_res table {
+  box-shadow: 0px 3px 10px #263842;
 }
 
 .doudle_res td {
