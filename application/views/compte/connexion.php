@@ -6,7 +6,10 @@
 
         <label for="password">Mot de passe</label>
         <input type="password" name="passw" id="password" required>
-        <p><?php echo $valide; ?></p>
+        <?php if ($valide!=''): ?>
+            <p class="error"><?php echo $valide; ?></p>
+        <?php endif; ?>
+
 
         <input type="submit" value="Connexion">
     </form>

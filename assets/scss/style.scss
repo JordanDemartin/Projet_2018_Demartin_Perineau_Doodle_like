@@ -1,6 +1,6 @@
-$taille-img:177px;
-$taille-rond : 15px;
-$page-color:#f7932f;
+$taille-img: 177px;
+$taille-rond: 15px;
+$page-color: #f7932f;
 $bouton-page-color: complement($page-color);
 $header-color: #263842;
 $bouton-header-color: complement($header-color);
@@ -9,22 +9,22 @@ $rouge: lighten(red,10%);
 $couleur-lien: #87ff00;
 
 @mixin rond($coleur){
+    box-sizing: content-box;
     width: $taille-rond;
     height: $taille-rond;
+    margin: auto;
     border: $taille-rond solid $coleur;
     border-radius: 100%;
-    margin: auto;
-    box-sizing: content-box;
 }
 
 @mixin bgc-ombre($color){
     background-color: $color;
-    box-shadow: 0px 3px 10px $color;
+    box-shadow: 0 3px 10px $color;
 }
 
-@mixin deg-ombre($coleur,$ombre:true){
+@mixin deg-ombre($coleur,$ombre: true){
     background: linear-gradient(to top,lighten($coleur, 30%), $coleur);
-    box-shadow: 0px 3px 10px $coleur;
+    box-shadow: 0 3px 10px $coleur;
 
     &:hover{
         background: linear-gradient(to bottom,lighten($coleur, 20%), $coleur);
@@ -36,19 +36,19 @@ $couleur-lien: #87ff00;
     box-sizing: border-box;
 }
 
-html,body{
-    margin:0;
-    padding:0;
+html, body{
+    margin: 0;
+    padding: 0;
 }
 
 html{
     height: 100%;
-    background-image: url("../image/fond.png") ;
-    background-repeat:no-repeat;
-    background-size: contain;
-    background-position: bottom center;
     background-color: $page-color;
-     background-attachment: fixed;
+    background-image: url('../image/fond.png') ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-size: contain;
 }
 
 
@@ -61,23 +61,18 @@ html{
     background-color: $rouge;
 }
 
-.rond_{
-
-    &vert{
-        @include rond($vert);
-    }
-    &rouge{
-        @include rond($rouge);
-
-    }
-
+.rond_vert{
+    @include rond($vert);
+}
+.rond_rouge{
+    @include rond($rouge);
 }
 
 .case_arrondi{
-    text-decoration: none;
-    color: #000;
     height: auto;
     padding: 10px;
+    text-decoration: none;
+    color: #000000;
     border-radius: 10px;
 }
 
@@ -90,39 +85,37 @@ form, table{
     margin-bottom: 20px;
 }
 
-form {
+form{
     padding: 15px;
-    @include bgc-ombre($header-color);
     color: $page-color;
+    @include bgc-ombre($header-color);
 
     p{
         margin: 0;
     }
     input{
-        width: 100%;
         box-sizing: border-box;
+        width: 100%;
         margin-bottom: 10px;
     }
     input:last-child{
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
     label{
         display: block;
     }
-
     textarea{
         width: 100%;
         height: 150px;
         resize: none;
     }
-
 }
 
 table{
-    color: $header-color;
     margin-top: 20px;
+    padding: 0;
+    color: $header-color;
     background-color: #ffcb65;
-    padding: 0px;
 }
 
 table.ui-datepicker-calendar{
@@ -138,55 +131,49 @@ th{
 
 header{
     position: fixed;
-    top: 0px;
+    top: 0;
     width: 100%;
     height: 80px;
     background: linear-gradient(to bottom, $header-color,lighten($header-color, 15%));
-    box-shadow: 0px 3px 10px $header-color;
+    box-shadow: 0 3px 10px $header-color;
 
     a{
         display: inline-block;
         height: 100%;
-
     }
     img{
-        height: 60px;
-        width: $taille-img;
         position: absolute;
         top: 50%;
-        transform: translateY(-50%)
+        width: $taille-img;
+        height: 60px;
+        transform: translateY(-50%);
     }
-
     .bare{
+        position: absolute;
+        top: 50%;
         left: $taille-img;
         height: 40px;
         margin-left: 20px;
-        position: absolute;
-        top: 50%;
         transform: translateY(-50%);
     }
-
     .compte{
-        right: 10px;
         position: absolute;
         top: 50%;
+        right: 10px;
         transform: translateY(-50%);
     }
-
     a.bouton{
         height: 100%;
+
         @include deg-ombre(lighten($header-color,25%));
-
     }
-
     p{
+        font-size: 20px;
         display: inline-block;
         margin: 0;
-        color: $page-color;
-        font-size: 20px;
         vertical-align: middle;
+        color: $page-color;
     }
-
 }
 
 /*----------------------------------------page--------------------------------------*/
@@ -197,152 +184,147 @@ header{
 }
 .div2{
     display: block;
-    width: 50%;
     float: left;
+    width: 50%;
 }
 
 .div2fin{
-    @extend .div2;
     display: inline-block;
     float: none;
+
+    @extend .div2;
 }
 
 .div4{
     display: block;
-    width: 25%;
     float: left;
+    width: 25%;
 }
 
 .div4fin{
-    @extend .div4;
     float: none;
+    @extend .div4;
 }
 
 /*----------------------------------------connexion---------------------------------*/
 
 .connexion{
-
-    margin: auto;
     width: 40%;
-    p {
+    margin: auto;
+
+    p{
         margin: 0;
     }
     .div2{
         margin-bottom: 10px;
+    }
+    .error{
+        margin-bottom: 10px;
+        color: $rouge;
     }
 }
 
 /*----------------------------------------etat-----------------------------------*/
 
 .etat{
-    margin: auto;
     width: 40%;
+    margin: auto;
     padding: 15px;
-    @include bgc-ombre($header-color);
     color: white ;
+    @include bgc-ombre($header-color);
+
     h1:first-child{
-        margin-top: 0px;
+        margin-top: 0;
     }
     p{
         margin-bottom: 10px;
     }
-
     a{
-        color: $couleur-lien;
         display: inline-block;
+        color: $couleur-lien;
     }
-
     a.bouton{
-        color:black;
         margin: 5px 0;
+        color: black;
     }
 }
 
 /*----------------------------------------doudle---------------------------------*/
 
 .doudle{
-    margin: auto;
     width: 40%;
+    margin: auto;
 
     .date{
         display: block;
 
         label{
-           display: inline;
+            display: inline;
         }
-
         input{
-           display: inline-block;
-           width: 100px;
-           text-align: center;
+            display: inline-block;
+            width: 100px;
+            text-align: center;
         }
     }
-
     .date input:last-child{
         margin-bottom: 10px;
     }
-
     table{
         padding: 5px 10px;
     }
 }
 .doudle_doudle{
+    display: inline-block;
+    padding: 15px;
+    color: white ;
+    @include bgc-ombre($header-color);
+
     .case_arrondi{
         padding: 5px;
     }
-    display: inline-block;
-    padding: 15px;
-    @include bgc-ombre($header-color);
-    color: white ;
-
     a{
         color: $couleur-lien ;
     }
-
     .case_arrondi{
         color: black ;
     }
-
     h1:first-child{
-        margin-top: 0px;
+        margin-top: 0;
     }
     p:last-child{
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 }
 
 .doudle_res{
     display: inline-block;
+
     .description{
         display: inline-block;
         padding: 15px;
-        @include bgc-ombre($header-color);
         color: white;
+        @include bgc-ombre($header-color);
 
         a{
             color: $couleur-lien;
         }
-
         h1:first-child{
-            margin-top: 0px;
+            margin-top: 0;
         }
         p:last-child{
-            margin-bottom: 0px;
+            margin-bottom: 0;
         }
-
     }
-
     table{
-        box-shadow: 0px 3px 10px $header-color;
+        box-shadow: 0 3px 10px $header-color;
     }
-
-    td {
+    td{
         border: 1px solid black;
     }
-    th {
+    th{
         border: 1px solid black;
     }
-
     .case_arrondi{
         padding: 7px;
     }

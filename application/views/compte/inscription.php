@@ -15,7 +15,10 @@
 
         <label for="login">Nom d'utilisateur</label>
         <input type="text" name="login" id="login" required value="<?php echo set_value('login');?>">
-        <p><?php echo $compte; ?></p>
+        <?php if ($compte!=''): ?>
+            <p class="error"><?php echo $compte; ?></p>
+        <?php endif; ?>
+
 
 
         <label for="email">E-mail</label>

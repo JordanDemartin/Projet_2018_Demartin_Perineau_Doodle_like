@@ -9,12 +9,12 @@ html, body {
 
 html {
   height: 100%;
+  background-color: #f7932f;
   background-image: url("../image/fond.png");
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom center;
-  background-color: #f7932f;
   background-attachment: fixed;
+  background-position: bottom center;
+  background-size: contain;
 }
 
 /*--------------------------------------miser en form--------------------------*/
@@ -27,34 +27,34 @@ html {
 }
 
 .rond_vert {
+  box-sizing: content-box;
   width: 15px;
   height: 15px;
+  margin: auto;
   border: 15px solid #00b300;
   border-radius: 100%;
-  margin: auto;
-  box-sizing: content-box;
 }
 
 .rond_rouge {
+  box-sizing: content-box;
   width: 15px;
   height: 15px;
+  margin: auto;
   border: 15px solid #ff3333;
   border-radius: 100%;
-  margin: auto;
-  box-sizing: content-box;
 }
 
 .case_arrondi, a.bouton {
-  text-decoration: none;
-  color: #000;
   height: auto;
   padding: 10px;
+  text-decoration: none;
+  color: #000000;
   border-radius: 10px;
 }
 
 a.bouton {
   background: linear-gradient(to top, #c2e0fd, #2f93f7);
-  box-shadow: 0px 3px 10px #2f93f7;
+  box-shadow: 0 3px 10px #2f93f7;
 }
 
 a.bouton:hover {
@@ -68,9 +68,9 @@ form, table {
 
 form {
   padding: 15px;
-  background-color: #263842;
-  box-shadow: 0px 3px 10px #263842;
   color: #f7932f;
+  background-color: #263842;
+  box-shadow: 0 3px 10px #263842;
 }
 
 form p {
@@ -78,13 +78,13 @@ form p {
 }
 
 form input {
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
   margin-bottom: 10px;
 }
 
 form input:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 form label {
@@ -98,10 +98,10 @@ form textarea {
 }
 
 table {
-  color: #263842;
   margin-top: 20px;
+  padding: 0;
+  color: #263842;
   background-color: #ffcb65;
-  padding: 0px;
 }
 
 table.ui-datepicker-calendar {
@@ -115,11 +115,11 @@ th {
 /*----------------------------------------entete--------------------------------*/
 header {
   position: fixed;
-  top: 0px;
+  top: 0;
   width: 100%;
   height: 80px;
   background: linear-gradient(to bottom, #263842, #426173);
-  box-shadow: 0px 3px 10px #263842;
+  box-shadow: 0 3px 10px #263842;
 }
 
 header a {
@@ -128,33 +128,33 @@ header a {
 }
 
 header img {
-  height: 60px;
-  width: 177px;
   position: absolute;
   top: 50%;
+  width: 177px;
+  height: 60px;
   transform: translateY(-50%);
 }
 
 header .bare {
+  position: absolute;
+  top: 50%;
   left: 177px;
   height: 40px;
   margin-left: 20px;
-  position: absolute;
-  top: 50%;
   transform: translateY(-50%);
 }
 
 header .compte {
-  right: 10px;
   position: absolute;
   top: 50%;
+  right: 10px;
   transform: translateY(-50%);
 }
 
 header a.bouton {
   height: 100%;
   background: linear-gradient(to top, #afc5d1, #557d93);
-  box-shadow: 0px 3px 10px #557d93;
+  box-shadow: 0 3px 10px #557d93;
 }
 
 header a.bouton:hover {
@@ -163,11 +163,11 @@ header a.bouton:hover {
 }
 
 header p {
+  font-size: 20px;
   display: inline-block;
   margin: 0;
-  color: #f7932f;
-  font-size: 20px;
   vertical-align: middle;
+  color: #f7932f;
 }
 
 /*----------------------------------------page--------------------------------------*/
@@ -178,8 +178,8 @@ header p {
 
 .div2, .div2fin {
   display: block;
-  width: 50%;
   float: left;
+  width: 50%;
 }
 
 .div2fin {
@@ -189,8 +189,8 @@ header p {
 
 .div4, .div4fin {
   display: block;
-  width: 25%;
   float: left;
+  width: 25%;
 }
 
 .div4fin {
@@ -199,8 +199,8 @@ header p {
 
 /*----------------------------------------connexion---------------------------------*/
 .connexion {
-  margin: auto;
   width: 40%;
+  margin: auto;
 }
 
 .connexion p {
@@ -211,18 +211,23 @@ header p {
   margin-bottom: 10px;
 }
 
+.connexion .error {
+  margin-bottom: 10px;
+  color: #ff3333;
+}
+
 /*----------------------------------------etat-----------------------------------*/
 .etat {
-  margin: auto;
   width: 40%;
+  margin: auto;
   padding: 15px;
-  background-color: #263842;
-  box-shadow: 0px 3px 10px #263842;
   color: white;
+  background-color: #263842;
+  box-shadow: 0 3px 10px #263842;
 }
 
 .etat h1:first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .etat p {
@@ -230,19 +235,19 @@ header p {
 }
 
 .etat a {
-  color: #87ff00;
   display: inline-block;
+  color: #87ff00;
 }
 
 .etat a.bouton {
-  color: black;
   margin: 5px 0;
+  color: black;
 }
 
 /*----------------------------------------doudle---------------------------------*/
 .doudle {
-  margin: auto;
   width: 40%;
+  margin: auto;
 }
 
 .doudle .date {
@@ -270,9 +275,9 @@ header p {
 .doudle_doudle {
   display: inline-block;
   padding: 15px;
-  background-color: #263842;
-  box-shadow: 0px 3px 10px #263842;
   color: white;
+  background-color: #263842;
+  box-shadow: 0 3px 10px #263842;
 }
 
 .doudle_doudle .case_arrondi, .doudle_doudle a.bouton {
@@ -288,11 +293,11 @@ header p {
 }
 
 .doudle_doudle h1:first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .doudle_doudle p:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .doudle_res {
@@ -302,9 +307,9 @@ header p {
 .doudle_res .description {
   display: inline-block;
   padding: 15px;
-  background-color: #263842;
-  box-shadow: 0px 3px 10px #263842;
   color: white;
+  background-color: #263842;
+  box-shadow: 0 3px 10px #263842;
 }
 
 .doudle_res .description a {
@@ -312,15 +317,15 @@ header p {
 }
 
 .doudle_res .description h1:first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .doudle_res .description p:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .doudle_res table {
-  box-shadow: 0px 3px 10px #263842;
+  box-shadow: 0 3px 10px #263842;
 }
 
 .doudle_res td {
