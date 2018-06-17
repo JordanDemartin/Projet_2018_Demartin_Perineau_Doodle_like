@@ -22,7 +22,7 @@
 
         <div class="compte">
             <?php if ($compte['connecter']): ?>
-                <?php echo $compte['contenue']; ?>
+                <p><?php echo $compte['contenue']; ?></p>
             <?php endif; ?>
 
             <?php if ($compte['connecter']): ?>

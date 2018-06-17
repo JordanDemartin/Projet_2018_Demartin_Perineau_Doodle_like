@@ -1,12 +1,13 @@
 <div class="doudle_res">
-    <p>Titre : <?php echo $titre ?></p>
-    <p>Lieu : <?php echo $lieu ?></p>
-    <p>Description : <?php echo $descriptif ?></p>
-    <p>État : <?php echo $etat; ?></p>
-    <?php if ($etat==="En cours"): ?>
-        <p>Lien : <a href=<?php echo site_url("/doudle/participer/").$cle; ?>><?php echo "http://".$_SERVER['HTTP_HOST'].site_url("/doudle/participer/").$cle; ?></a></p>
-    <?php endif; ?>
-
+    <div class="description">
+        <h1><?php echo $titre ?></h1>
+        <p>Lieu : <?php echo $lieu ?></p>
+        <p>Description : <?php echo $descriptif ?></p>
+        <p>État : <?php echo $etat; ?></p>
+        <?php if ($etat==="En cours"): ?>
+            <p>Lien : <a href=<?php echo site_url("/doudle/participer/").$cle; ?>><?php echo "http://".$_SERVER['HTTP_HOST'].site_url("/doudle/participer/").$cle; ?></a></p>
+        <?php endif; ?>
+    </div>
     <table>
         <tr>
             <th></th>
@@ -17,7 +18,7 @@
                     }
                 } ?>
                 <?php if ($value['jour'] !==null): ?>
-                    <th><?php echo $value['jour']."/".$value['mois']."/".$value['annee']." ".$value['heure'].":".$value['minu']; ?></th>
+                    <th><?php echo $value['jour']."/".$value['mois']."/".$value['annee'];?><br><?php echo $value['heure'].":".$value['minu']; ?></th>
                 <?php else: ?>
                     <th>Aucune des dates</th>
                 <?php endif; ?>

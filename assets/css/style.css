@@ -9,36 +9,103 @@ html, body {
 
 html {
   height: 100%;
-  background-image: url("../image/fond.jpg");
+  background-image: url("../image/fond.png");
   background-repeat: no-repeat;
-  background-size: contain 100%;
-  background-position: center;
+  background-size: contain;
+  background-position: bottom center;
   background-color: #f7932f;
+  background-attachment: fixed;
 }
 
 /*--------------------------------------miser en form--------------------------*/
+.vert {
+  background-color: #00b300;
+}
+
+.rouge {
+  background-color: #ff3333;
+}
+
 .rond_vert {
   width: 15px;
   height: 15px;
-  border: 15px solid #01ff01;
+  border: 15px solid #00b300;
   border-radius: 100%;
   margin: auto;
+  box-sizing: content-box;
 }
 
 .rond_rouge {
   width: 15px;
   height: 15px;
-  border: 15px solid #ff8080;
+  border: 15px solid #ff3333;
   border-radius: 100%;
   margin: auto;
+  box-sizing: content-box;
 }
 
 .case_arrondi, a.bouton {
   text-decoration: none;
   color: #000;
-  padding: 5px;
-  border-radius: 50px;
-  margin: 5px;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+a.bouton {
+  background: linear-gradient(to top, #c2e0fd, #2f93f7);
+  box-shadow: 0px 3px 10px #2f93f7;
+}
+
+a.bouton:hover {
+  background: linear-gradient(to bottom, #91c6fb, #2f93f7);
+  box-shadow: none;
+}
+
+form, table {
+  margin-bottom: 20px;
+}
+
+form {
+  padding: 15px;
+  background-color: #263842;
+  box-shadow: 0px 3px 10px #263842;
+  color: #f7932f;
+}
+
+form p {
+  margin: 0;
+}
+
+form input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+form input:last-child {
+  margin-bottom: 0px;
+}
+
+form label {
+  display: block;
+}
+
+form textarea {
+  width: 100%;
+  height: 150px;
+  resize: none;
+}
+
+table {
+  color: #263842;
+  margin-top: 20px;
+  background-color: #ffcb65;
+  padding: 0px;
+}
+
+th {
+  padding: 3px;
 }
 
 /*----------------------------------------entete--------------------------------*/
@@ -47,7 +114,8 @@ header {
   top: 0px;
   width: 100%;
   height: 80px;
-  background: linear-gradient(to top, #f7932f, #fab979);
+  background: linear-gradient(to bottom, #263842, #426173);
+  box-shadow: 0px 3px 10px #263842;
 }
 
 header a {
@@ -65,6 +133,7 @@ header img {
 
 header .bare {
   left: 177px;
+  height: 40px;
   margin-left: 20px;
   position: absolute;
   top: 50%;
@@ -72,20 +141,29 @@ header .bare {
 }
 
 header .compte {
-  right: 0;
+  right: 10px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
 header a.bouton {
-  background: linear-gradient(to bottom, #ddf4fa, #5ac7e4);
-  box-shadow: 0px 3px 10px #5ac7e4;
+  height: 100%;
+  background: linear-gradient(to top, #afc5d1, #557d93);
+  box-shadow: 0px 3px 10px #557d93;
 }
 
 header a.bouton:hover {
-  background: linear-gradient(to top, #b2e5f2, #5ac7e4);
+  background: linear-gradient(to bottom, #8faebf, #557d93);
   box-shadow: none;
+}
+
+header p {
+  display: inline-block;
+  margin: 0;
+  color: #f7932f;
+  font-size: 20px;
+  vertical-align: middle;
 }
 
 /*----------------------------------------page--------------------------------------*/
@@ -94,36 +172,25 @@ header a.bouton:hover {
   padding: 30px;
 }
 
-.div2elem {
+.div2, .div2fin {
   display: block;
   width: 50%;
   float: left;
 }
 
-.div4 {
+.div2fin {
+  display: inline-block;
+  float: none;
+}
+
+.div4, .div4fin {
   display: block;
   width: 25%;
   float: left;
 }
 
 .div4fin {
-  display: block;
-  width: 25%;
-}
-
-/*----------------------------------------form--------------------------------------*/
-form input {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-form label {
-  display: block;
-}
-
-form textarea {
-  width: 100%;
-  height: 150px;
+  float: none;
 }
 
 /*----------------------------------------connexion---------------------------------*/
@@ -156,10 +223,56 @@ form textarea {
   text-align: center;
 }
 
-.doudle_res table {
-  margin-bottom: 10px;
-  background-color: #ffcb65;
-  padding: 0px;
+.doudle_doudle {
+  display: inline-block;
+  padding: 15px;
+  background-color: #263842;
+  box-shadow: 0px 3px 10px #263842;
+  color: white;
+}
+
+.doudle_doudle .case_arrondi, .doudle_doudle a.bouton {
+  padding: 5px;
+}
+
+.doudle_doudle a {
+  color: white;
+}
+
+.doudle_doudle .case_arrondi, .doudle_doudle a.bouton {
+  color: black;
+}
+
+.doudle_doudle h1:first-child {
+  margin-top: 0px;
+}
+
+.doudle_doudle p:last-child {
+  margin-bottom: 0px;
+}
+
+.doudle_res {
+  display: inline-block;
+}
+
+.doudle_res .description {
+  display: inline-block;
+  padding: 15px;
+  background-color: #263842;
+  box-shadow: 0px 3px 10px #263842;
+  color: white;
+}
+
+.doudle_res .description a {
+  color: white;
+}
+
+.doudle_res .description h1:first-child {
+  margin-top: 0px;
+}
+
+.doudle_res .description p:last-child {
+  margin-bottom: 0px;
 }
 
 .doudle_res td {
@@ -168,9 +281,4 @@ form textarea {
 
 .doudle_res th {
   border: 1px solid black;
-  padding: 3px;
-}
-
-.doudle_res a.bouton {
-  background: #2f93f7;
 }

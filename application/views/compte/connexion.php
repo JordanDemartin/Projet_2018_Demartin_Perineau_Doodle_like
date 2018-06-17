@@ -10,6 +10,6 @@
 
         <input type="submit" value="Connexion">
     </form>
-    <p><a href="<?= site_url('compte/inscription') ?>">Créer un compte</a></p>
+    <p><a class="bouton" href="<?= site_url('compte/inscription') ?>">Créer un compte</a></p>
 
 </div>

@@ -1,12 +1,12 @@
 <div class="connexion">
     <form action=<?php echo current_url(); ?> method="post">
 
-        <div class="div2elem">
+        <div class="div2">
             <label for="prenom" >Prénom</label>
             <input type="text" name="prenom" id="prenom" pattern="[a-zA-Z]+" required value="<?php echo set_value('prenom');?>">
         </div>
 
-        <div class="div2elem">
+        <div class="div2fin">
             <label for="nom" >Nom</label>
             <input type="text" name="nom" id="nom" pattern="[a-zA-Z]+" required value="<?php echo set_value('nom');?>">
         </div>
@@ -32,6 +32,6 @@
 
         <input type="submit" value="Inscription">
     </form>
-    <p><a href="<?= site_url('compte/connexion') ?>">Se connecter</a></p>
+    <p><a class="bouton" href="<?= site_url('compte/connexion') ?>">Se connecter</a></p>
 
 </div>
