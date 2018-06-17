@@ -6,7 +6,7 @@ class Doudle extends CI_Controller {
     public function index()
     {
 
-        loadpage("Index","doudle/index");
+        loadpage("Doudle - Accueil","doudle/index");
     }
 
     public function creation($nombre_date=1,$retirer="flase")
@@ -66,12 +66,12 @@ class Doudle extends CI_Controller {
             }
 
         }
-        loadpage("Création Doudle","doudle/creation",["nombre_date"=> $nombre_date]);
+        loadpage("Doudle - Création Doudle","doudle/creation",["nombre_date"=> $nombre_date]);
 
     }
 
     public function succes($cle=""){
-        loadpage("création réusite","doudle/creation_final",['url'=> "http://".$_SERVER['HTTP_HOST'].site_url("doudle/participer")."/".$cle,"cle"=>$cle]);
+        loadpage("Doudle - création réussie","doudle/creation_final",['url'=> "http://".$_SERVER['HTTP_HOST'].site_url("doudle/participer")."/".$cle,"cle"=>$cle]);
     }
 
     public function participer($cle='')
@@ -121,11 +121,11 @@ class Doudle extends CI_Controller {
 
         }
 
-        loadpage("Participer Doudle","doudle/participer",['dates'=>$dates]);
+        loadpage("Doudle - Participer Doudle","doudle/participer",['dates'=>$dates]);
     }
 
     public function succes_part($cle=""){
-        loadpage("Participer succes","doudle/succes_part",['cle'=>$cle]);
+        loadpage("Doudle - Participer succès","doudle/succes_part",['cle'=>$cle]);
     }
 
     public function resultat($cle='')
@@ -138,7 +138,7 @@ class Doudle extends CI_Controller {
         $dates=$this->Date_model->getDate($cle);
 
         if (count($sondage) == 0) {
-            loadpage("Doudle non disponible","doudle/non_dispo",["text"=>"n'existe pas"]);
+            loadpage("Doudle - Doudle non disponible","doudle/non_dispo",["text"=>"n'existe pas"]);
             return;
         }
 
@@ -195,7 +195,7 @@ class Doudle extends CI_Controller {
 
         $donne=array_merge($sondage[0],["dates"=>$dates,"personnes"=>$participant,"total"=>$total,"cle"=>$cle]);
 
-        loadpage("Resultat doudle","doudle/resultat",$donne);
+        loadpage("Doudle - Resultats Doudle","doudle/resultat",$donne);
     }
 
     public function modetat($cle='',$value='En_cours',$validation="flase")
@@ -217,7 +217,7 @@ class Doudle extends CI_Controller {
             $this->Sondage_model->modifEtat($cle,"En cours");
         }else if ($value=="supprimer") {
 
-            loadpage("confirmation suppression","doudle/supr",$cle);
+            loadpage("Doudle - Confirmation suppression","doudle/supr",$cle);
 
             if ($validation=='true') {
                 $this->Sondage_model->supprimeSondage($cle);

@@ -29,7 +29,7 @@ class Compte extends CI_Controller {
 			$erreur="mauvais mot de passe";
 		}
 
-		loadpage("Connexion","compte/connexion",["valide"=>$erreur]);
+		loadpage("Doudle - Connexion","compte/connexion",["valide"=>$erreur]);
 
 	}
 
@@ -61,13 +61,13 @@ class Compte extends CI_Controller {
 			}
 
 		}
-		loadpage("Inscription","compte/inscription",["compte"=>$compte]);
+		loadpage("Doudle - Inscription","compte/inscription",["compte"=>$compte]);
 
 
 	}
 
 	public function status(){
-		loadpage("Succes","compte/succes");
+		loadpage("Doudle - Succès","compte/succes");
 	}
 
 	public function deconnexion()
@@ -86,7 +86,7 @@ class Compte extends CI_Controller {
 
 		$doudle=$this->Compte_model->getSondage($this->session->nom);
 
-		loadpage("mes Doulde","/compte/mesDoudle",["doudle"=>$doudle]);
+		loadpage("Doudle - Mes Douldes","/compte/mesDoudle",["doudle"=>$doudle]);
 	}
 
 }
