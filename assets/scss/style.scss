@@ -246,6 +246,16 @@ header{
     p{
         margin-bottom: 10px;
     }
+
+    a{
+        color: $couleur-lien;
+        display: inline-block;
+    }
+
+    a.bouton{
+        color:black;
+        margin: 5px 0;
+    }
 }
 
 /*----------------------------------------doudle---------------------------------*/

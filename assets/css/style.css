@@ -229,6 +229,16 @@ header p {
   margin-bottom: 10px;
 }
 
+.etat a {
+  color: #87ff00;
+  display: inline-block;
+}
+
+.etat a.bouton {
+  color: black;
+  margin: 5px 0;
+}
+
 /*----------------------------------------doudle---------------------------------*/
 .doudle {
   margin: auto;

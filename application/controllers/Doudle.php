@@ -70,7 +70,7 @@ class Doudle extends CI_Controller {
 
     }
 
-    public function succes($cle){
+    public function succes($cle=""){
         loadpage("création réusite","doudle/creation_final",['url'=> "http://".$_SERVER['HTTP_HOST'].site_url("doudle/participer")."/".$cle,"cle"=>$cle]);
     }
 
