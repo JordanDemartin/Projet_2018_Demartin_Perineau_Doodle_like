@@ -82,14 +82,14 @@ class Doudle extends CI_Controller {
         $dates=$this->Date_model->getDate($cle);
 
         if (count($dates) == 0) {
-            loadpage("Doudle non disponible","doudle/non_dispo",["text"=>"n'existe pas"]);
+            loadpage("Doudle - Doudle non disponible","doudle/non_dispo",["text"=>"n'existe pas"]);
             return;
         }
 
         $this->load->model("Sondage_model");
         $doudle=$this->Sondage_model->getSondage($cle);
         if ($doudle[0]["etat"]!="En cours") {
-            loadpage("Doudle non disponible","doudle/non_dispo",["text"=>"est actuellement est ferme"]);
+            loadpage("Doudle - Doudle non disponible","doudle/non_dispo",["text"=>"est actuellement fermée"]);
             return;
         }
 
