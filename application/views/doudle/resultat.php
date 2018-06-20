@@ -53,8 +53,5 @@
 
 
     </table>
-    <?php if ($etat==="En cours"): ?>
-        <a class="bouton" href=<?php echo site_url('/doudle/participer/').$cle; ?>>Participer</a>
-    <?php endif; ?>
 
 </div>

@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'dwarves.iut-fbleau.fr',
 	'username' => 'perineau',
 	'password' => 'perineau',
 	'database' => 'perineau',

@@ -117,19 +117,34 @@ class Doudle extends CI_Controller {
                 }
             }
 
-            redirect("/doudle/succes_part/$cle");
+            redirect("/doudle/succes_part/");
 
         }
 
         loadpage("Doudle - Participer Doudle","doudle/participer",['dates'=>$dates]);
     }
 
-    public function succes_part($cle=""){
-        loadpage("Doudle - Participer succès","doudle/succes_part",['cle'=>$cle]);
+    public function succes_part(){
+        loadpage("Doudle - Participer succès","doudle/succes_part");
     }
 
     public function resultat($cle='')
     {
+
+        if (!$this->session->connecter) {
+            redirect('/compte/connexion');
+        }
+        $this->load->model("Sondage_model");
+        $doudle=$this->Sondage_model->getSondage($cle);
+        if (count($doudle)!=0) {
+            if ($doudle[0]["createur"]!=$this->session->nom) {
+                redirect('/compte/connexion');
+            }
+        }else {
+            redirect('/compte/connexion');
+        }
+
+
         $this->load->library('form_validation');
 		$this->load->helper('form');
         $this->load->model("Date_model");

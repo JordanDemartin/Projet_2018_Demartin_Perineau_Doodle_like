@@ -203,6 +203,7 @@ header{
 
 .div4fin{
     float: none;
+
     @extend .div4;
 }
 
@@ -242,6 +243,9 @@ header{
     a{
         display: inline-block;
         color: $couleur-lien;
+    }
+    a.case_arrondi{
+        color: black;
     }
     a.bouton{
         margin: 5px 0;
@@ -289,11 +293,13 @@ header{
     .case_arrondi{
         color: black ;
     }
-    h1:first-child{
-        margin-top: 0;
-    }
-    p:last-child{
-        margin-bottom: 0;
+    h1,p{
+        &:first-child{
+            margin-top: 0;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
     }
 }
 
