@@ -4,13 +4,15 @@
         <p>Lieu : <?php echo $lieu ?></p>
         <p>Description : <?php echo $descriptif ?></p>
         <p>État :<?php if ($etat=="En cours"): ?>
-            <span class="case_arrondi vert" ><?php echo $etat; ?></span>
+            <a class="case_arrondi vert" href= <?php echo site_url("/doudle/modetat/").$cle."/Clos"; ?>><?php echo $etat; ?></a>
         <?php else: ?>
-            <span class="case_arrondi rouge" ><?php echo $etat; ?></span>
-        <?php endif; ?></p>
+            <a class="case_arrondi rouge" href=<?php echo site_url("/doudle/modetat/").$cle."/En_cours"; ?>><?php echo $etat; ?></a>
+        <?php endif; ?><a class="case_arrondi rouge" href=<?php echo site_url("/doudle/modetat/").$cle."/supprimer"; ?>>supprimer</a></p>
         <?php if ($etat==="En cours"): ?>
-            <p>Lien : <a href=<?php echo site_url("/doudle/participer/").$cle; ?>><?php echo "http://".$_SERVER['HTTP_HOST'].site_url("/doudle/participer/").$cle; ?></a></p>
+            <p>Lien pour participer : <a href=<?php echo site_url("/doudle/participer/").$cle; ?>><?php echo "http://".$_SERVER['HTTP_HOST'].site_url("/doudle/participer/").$cle; ?></a></p>
         <?php endif; ?>
+
+
     </div>
     <table>
         <tr>
@@ -50,8 +52,6 @@
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>
-
-
     </table>
 
 </div>

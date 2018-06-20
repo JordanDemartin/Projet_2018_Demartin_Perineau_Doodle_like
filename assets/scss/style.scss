@@ -72,7 +72,7 @@ html{
     height: auto;
     padding: 10px;
     text-decoration: none;
-    color: #000000;
+    color: #000000 !important;
     border-radius: 10px;
 }
 
@@ -243,9 +243,6 @@ header{
     a{
         display: inline-block;
         color: $couleur-lien;
-    }
-    a.case_arrondi{
-        color: black;
     }
     a.bouton{
         margin: 5px 0;

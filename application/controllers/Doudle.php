@@ -236,6 +236,7 @@ class Doudle extends CI_Controller {
 
             if ($validation=='true') {
                 $this->Sondage_model->supprimeSondage($cle);
+                redirect("compte/mesdoudle");
             }else {
                 return;
             }
@@ -243,7 +244,7 @@ class Doudle extends CI_Controller {
         }else if ($value=="Clos") {
             $this->Sondage_model->modifEtat($cle,"Clos");
         }
-        redirect("compte/mesdoudle");
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
 }

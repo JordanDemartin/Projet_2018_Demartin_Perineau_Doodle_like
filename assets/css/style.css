@@ -48,7 +48,7 @@ html {
   height: auto;
   padding: 10px;
   text-decoration: none;
-  color: #000000;
+  color: #000000 !important;
   border-radius: 10px;
 }
 
@@ -237,10 +237,6 @@ header p {
 .etat a {
   display: inline-block;
   color: #87ff00;
-}
-
-.etat a.case_arrondi, .etat a.bouton {
-  color: black;
 }
 
 .etat a.bouton {
